@@ -83,7 +83,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="s5o-DU-sKK">
-                                <rect key="frame" x="12" y="116" width="390" height="518"/>
+                                <rect key="frame" x="12" y="116" width="390" height="474"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a noun" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="skm-ss-xFU">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="34"/>
@@ -135,13 +135,8 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter an adverb" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dyg-hk-vIE">
-                                        <rect key="frame" x="0.0" y="440" width="390" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a color" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VxE-OD-Lp5">
-                                        <rect key="frame" x="0.0" y="484" width="390" height="34"/>
+                                        <rect key="frame" x="0.0" y="440" width="390" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
@@ -171,7 +166,7 @@
                                 <rect key="frame" x="167.5" y="728" width="79" height="30"/>
                                 <state key="normal" title="Show Story"/>
                                 <connections>
-                                    <segue destination="OLh-J4-u9J" kind="show" id="yQD-Gp-Uh4"/>
+                                    <segue destination="OLh-J4-u9J" kind="show" identifier="SegueToStoryView" id="yQD-Gp-Uh4"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -210,17 +205,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="z54-ty-W5z">
-                                <rect key="frame" x="12" y="323" width="390" height="250"/>
+                                <rect key="frame" x="12" y="246" width="390" height="462"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="250" id="3sv-OJ-jXU"/>
-                                </constraints>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NdE-Le-bUK">
-                                <rect key="frame" x="12" y="192" width="390" height="21"/>
+                                <rect key="frame" x="12" y="190" width="390" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -228,12 +220,13 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="z54-ty-W5z" firstAttribute="top" secondItem="NdE-Le-bUK" secondAttribute="bottom" constant="110" id="NPb-Y9-QDj"/>
+                            <constraint firstItem="z54-ty-W5z" firstAttribute="top" secondItem="NdE-Le-bUK" secondAttribute="bottom" constant="35" id="6ou-YE-eRv"/>
                             <constraint firstItem="NdE-Le-bUK" firstAttribute="leading" secondItem="rG3-ye-XWL" secondAttribute="leading" constant="12" id="X8b-Bu-G3G"/>
-                            <constraint firstItem="rG3-ye-XWL" firstAttribute="bottom" secondItem="z54-ty-W5z" secondAttribute="bottom" constant="235" id="cU1-DX-pVS"/>
+                            <constraint firstItem="rG3-ye-XWL" firstAttribute="bottom" secondItem="z54-ty-W5z" secondAttribute="bottom" constant="100" id="cU1-DX-pVS"/>
                             <constraint firstItem="rG3-ye-XWL" firstAttribute="trailing" secondItem="NdE-Le-bUK" secondAttribute="trailing" constant="12" id="gYI-gn-NT5"/>
                             <constraint firstItem="z54-ty-W5z" firstAttribute="leading" secondItem="rG3-ye-XWL" secondAttribute="leading" constant="12" id="lrX-UY-Olg"/>
                             <constraint firstItem="rG3-ye-XWL" firstAttribute="trailing" secondItem="z54-ty-W5z" secondAttribute="trailing" constant="12" id="oKR-Po-363"/>
+                            <constraint firstItem="NdE-Le-bUK" firstAttribute="top" secondItem="rG3-ye-XWL" secondAttribute="top" constant="190" id="qnq-Kq-Llu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rG3-ye-XWL"/>
                     </view>
@@ -252,7 +245,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eca-tH-tMJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2728" y="138"/>
+            <point key="canvasLocation" x="2726.0869565217395" y="137.94642857142856"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Jzg-hm-8Vw">
@@ -516,6 +509,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="yQD-Gp-Uh4"/>
-        <segue reference="BlP-5D-o8x"/>
+        <segue reference="SLm-Kn-tiW"/>
     </inferredMetricsTieBreakers>
 </document>
