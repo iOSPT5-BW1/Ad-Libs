@@ -8,7 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		05AD2A17240767E30051AC59 /* AdLibCreatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AD2A16240767E30051AC59 /* AdLibCreatorViewController.swift */; };
-		05AD2A1924076A880051AC59 /* StoryMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AD2A1824076A880051AC59 /* StoryMode.swift */; };
+		05AD2A1924076A880051AC59 /* StorySelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AD2A1824076A880051AC59 /* StorySelector.swift */; };
+		05AD2A1B24076E0C0051AC59 /* AdLib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AD2A1A24076E0C0051AC59 /* AdLib.swift */; };
+		05AD2A1D24076E2D0051AC59 /* AdLibController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AD2A1C24076E2D0051AC59 /* AdLibController.swift */; };
+		05AD2A1F24077BD80051AC59 /* StoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AD2A1E24077BD80051AC59 /* StoryViewController.swift */; };
 		38AF8E862406FCC400608D01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AF8E852406FCC400608D01 /* AppDelegate.swift */; };
 		38AF8E882406FCC400608D01 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AF8E872406FCC400608D01 /* SceneDelegate.swift */; };
 		38AF8E8A2406FCC400608D01 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AF8E892406FCC400608D01 /* ViewController.swift */; };
@@ -18,11 +21,16 @@
 		38AF8E9A24070B6200608D01 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AF8E9924070B6200608D01 /* SettingsViewController.swift */; };
 		38AF8E9C24070F6100608D01 /* String+UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AF8E9B24070F6100608D01 /* String+UserDefaults.swift */; };
 		38AF8EA024070FAF00608D01 /* ThemeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AF8E9F24070FAF00608D01 /* ThemeHelper.swift */; };
+		38AF8EA524086A0800608D01 /* AdLibBookCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AF8EA424086A0800608D01 /* AdLibBookCollectionViewController.swift */; };
+		38AF8EA724086A2400608D01 /* AdLibBookCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AF8EA624086A2400608D01 /* AdLibBookCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		05AD2A16240767E30051AC59 /* AdLibCreatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdLibCreatorViewController.swift; sourceTree = "<group>"; };
-		05AD2A1824076A880051AC59 /* StoryMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryMode.swift; sourceTree = "<group>"; };
+		05AD2A1824076A880051AC59 /* StorySelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorySelector.swift; sourceTree = "<group>"; };
+		05AD2A1A24076E0C0051AC59 /* AdLib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdLib.swift; sourceTree = "<group>"; };
+		05AD2A1C24076E2D0051AC59 /* AdLibController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdLibController.swift; sourceTree = "<group>"; };
+		05AD2A1E24077BD80051AC59 /* StoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewController.swift; sourceTree = "<group>"; };
 		38AF8E822406FCC400608D01 /* AdLibs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdLibs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38AF8E852406FCC400608D01 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		38AF8E872406FCC400608D01 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -34,6 +42,8 @@
 		38AF8E9924070B6200608D01 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		38AF8E9B24070F6100608D01 /* String+UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+UserDefaults.swift"; sourceTree = "<group>"; };
 		38AF8E9F24070FAF00608D01 /* ThemeHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeHelper.swift; sourceTree = "<group>"; };
+		38AF8EA424086A0800608D01 /* AdLibBookCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdLibBookCollectionViewController.swift; sourceTree = "<group>"; };
+		38AF8EA624086A2400608D01 /* AdLibBookCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdLibBookCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +60,7 @@
 		05AD2A122407670C0051AC59 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				05AD2A1A24076E0C0051AC59 /* AdLib.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -57,6 +68,8 @@
 		05AD2A13240767100051AC59 /* Model Controller */ = {
 			isa = PBXGroup;
 			children = (
+				05AD2A1C24076E2D0051AC59 /* AdLibController.swift */,
+				05AD2A1824076A880051AC59 /* StorySelector.swift */,
 			);
 			path = "Model Controller";
 			sourceTree = "<group>";
@@ -65,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				05AD2A16240767E30051AC59 /* AdLibCreatorViewController.swift */,
+				05AD2A1E24077BD80051AC59 /* StoryViewController.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -73,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				05AD2A1824076A880051AC59 /* StoryMode.swift */,
+				38AF8EA624086A2400608D01 /* AdLibBookCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -108,6 +123,7 @@
 				38AF8E902406FCC600608D01 /* LaunchScreen.storyboard */,
 				38AF8E932406FCC600608D01 /* Info.plist */,
 				38AF8EA12407105300608D01 /* Settings */,
+				38AF8EA424086A0800608D01 /* AdLibBookCollectionViewController.swift */,
 			);
 			path = AdLibs;
 			sourceTree = "<group>";
@@ -193,12 +209,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05AD2A1924076A880051AC59 /* StoryMode.swift in Sources */,
+				05AD2A1924076A880051AC59 /* StorySelector.swift in Sources */,
+				05AD2A1B24076E0C0051AC59 /* AdLib.swift in Sources */,
 				38AF8E8A2406FCC400608D01 /* ViewController.swift in Sources */,
 				38AF8E862406FCC400608D01 /* AppDelegate.swift in Sources */,
+				05AD2A1D24076E2D0051AC59 /* AdLibController.swift in Sources */,
 				05AD2A17240767E30051AC59 /* AdLibCreatorViewController.swift in Sources */,
 				38AF8E882406FCC400608D01 /* SceneDelegate.swift in Sources */,
 				38AF8EA024070FAF00608D01 /* ThemeHelper.swift in Sources */,
+				38AF8EA524086A0800608D01 /* AdLibBookCollectionViewController.swift in Sources */,
+				05AD2A1F24077BD80051AC59 /* StoryViewController.swift in Sources */,
+				38AF8EA724086A2400608D01 /* AdLibBookCollectionViewCell.swift in Sources */,
 				38AF8E9A24070B6200608D01 /* SettingsViewController.swift in Sources */,
 				38AF8E9C24070F6100608D01 /* String+UserDefaults.swift in Sources */,
 			);

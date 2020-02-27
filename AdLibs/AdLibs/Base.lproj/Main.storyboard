@@ -199,7 +199,7 @@
         <!--Show Story-->
         <scene sceneID="CRX-il-Jf3">
             <objects>
-                <viewController title="Show Story" id="OLh-J4-u9J" sceneMemberID="viewController">
+                <viewController title="Show Story" id="OLh-J4-u9J" customClass="StoryViewController" customModule="AdLibs" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RCd-0e-3As">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -242,6 +242,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="storyTextVew" destination="z54-ty-W5z" id="Sox-XR-vfh"/>
+                        <outlet property="titleLabel" destination="NdE-Le-bUK" id="Qug-vO-fnv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eca-tH-tMJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
