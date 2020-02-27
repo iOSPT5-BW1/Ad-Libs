@@ -25,18 +25,24 @@
                                 </items>
                             </tabBar>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="mfa-0t-RqR">
-                                <rect key="frame" x="12" y="400.5" width="390" height="95"/>
+                                <rect key="frame" x="12" y="393.5" width="390" height="109"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RO5-ET-F3F">
-                                        <rect key="frame" x="0.0" y="0.0" width="390" height="30"/>
-                                        <state key="normal" title="Play Ad-Libs!"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="37"/>
+                                        <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="20"/>
+                                        <state key="normal" title="Play Ad-Libs!">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <segue destination="LrF-2V-Yax" kind="show" id="CSv-i4-Deh"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aVC-im-PYa">
-                                        <rect key="frame" x="0.0" y="65" width="390" height="30"/>
-                                        <state key="normal" title="Ad-Libs Book"/>
+                                        <rect key="frame" x="0.0" y="72" width="390" height="37"/>
+                                        <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="20"/>
+                                        <state key="normal" title="Ad-Libs Book">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <segue destination="S14-AL-IL7" kind="show" id="caG-y5-S5G"/>
                                         </connections>
@@ -105,19 +111,19 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="v6d-m0-E2B">
-                                <rect key="frame" x="82" y="237" width="250" height="31"/>
+                                <rect key="frame" x="75.5" y="237" width="263" height="31"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ad-Lib" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B5c-2K-B4g">
-                                        <rect key="frame" x="0.0" y="0.0" width="51.5" height="31"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="64.5" height="31"/>
+                                        <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="lGn-bw-bFU">
-                                        <rect key="frame" x="66.5" y="0.0" width="51" height="31"/>
+                                        <rect key="frame" x="79.5" y="0.0" width="51" height="31"/>
                                     </switch>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Random Ad-Lib" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jjp-X7-M9J">
-                                        <rect key="frame" x="130.5" y="0.0" width="119.5" height="31"/>
+                                        <rect key="frame" x="143.5" y="0.0" width="119.5" height="31"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -230,7 +236,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="Kle-6Z-8ai" userLabel="Picker Stack View">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="Kle-6Z-8ai" userLabel="Picker Stack View">
                                 <rect key="frame" x="35" y="387.5" width="320" height="259.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pick color theme" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QRw-Pn-MoL">
@@ -240,7 +246,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w6g-px-49Y">
-                                        <rect key="frame" x="0.0" y="44" width="320" height="216"/>
+                                        <rect key="frame" x="0.0" y="43.5" width="320" height="216"/>
                                     </pickerView>
                                 </subviews>
                             </stackView>
@@ -328,19 +334,19 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="36" translatesAutoresizingMaskIntoConstraints="NO" id="Xk2-xB-SBb">
                                         <rect key="frame" x="0.0" y="113" width="225" height="31"/>
                                         <subviews>
-                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="LmG-uW-uZO">
-                                                <rect key="frame" x="0.0" y="0.0" width="57" height="31"/>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="751" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="LmG-uW-uZO">
+                                                <rect key="frame" x="0.0" y="0.0" width="51" height="31"/>
                                                 <connections>
                                                     <action selector="story1Switch:" destination="ghw-e1-FOz" eventType="valueChanged" id="rgS-aM-kNN"/>
                                                 </connections>
                                             </switch>
-                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="SAi-g2-wov">
-                                                <rect key="frame" x="91" y="0.0" width="51" height="31"/>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="SAi-g2-wov">
+                                                <rect key="frame" x="85" y="0.0" width="57" height="31"/>
                                                 <connections>
                                                     <action selector="story2Switch:" destination="ghw-e1-FOz" eventType="valueChanged" id="zNe-mG-Ljs"/>
                                                 </connections>
                                             </switch>
-                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Aay-Q1-6hk">
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="751" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Aay-Q1-6hk">
                                                 <rect key="frame" x="176" y="0.0" width="51" height="31"/>
                                                 <connections>
                                                     <action selector="story3Switch:" destination="ghw-e1-FOz" eventType="valueChanged" id="HMY-aU-akM"/>
@@ -355,6 +361,7 @@
                         <constraints>
                             <constraint firstItem="rvJ-PF-lFD" firstAttribute="top" secondItem="w6g-px-49Y" secondAttribute="bottom" constant="100" id="4oV-rP-MUH"/>
                             <constraint firstItem="JP0-Ua-fjx" firstAttribute="centerX" secondItem="jP0-ZE-8Vc" secondAttribute="centerX" id="ENZ-ww-pNg"/>
+                            <constraint firstItem="Kle-6Z-8ai" firstAttribute="leading" secondItem="H26-Xo-DHk" secondAttribute="leading" constant="35" id="HP2-uZ-B4o"/>
                             <constraint firstItem="rvJ-PF-lFD" firstAttribute="centerX" secondItem="jP0-ZE-8Vc" secondAttribute="centerX" id="OGr-gV-fV7"/>
                             <constraint firstItem="H26-Xo-DHk" firstAttribute="bottom" secondItem="rvJ-PF-lFD" secondAttribute="bottom" constant="85" id="TRK-TZ-tIV"/>
                             <constraint firstItem="Kle-6Z-8ai" firstAttribute="top" secondItem="JP0-Ua-fjx" secondAttribute="bottom" constant="100" id="sXr-fh-4Ej"/>
@@ -489,7 +496,7 @@
         <image name="settings" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="mNL-GY-zHG"/>
-        <segue reference="SLm-Kn-tiW"/>
+        <segue reference="yQD-Gp-Uh4"/>
+        <segue reference="7e3-yI-nek"/>
     </inferredMetricsTieBreakers>
 </document>
