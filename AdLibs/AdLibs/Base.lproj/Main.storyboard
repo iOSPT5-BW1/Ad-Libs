@@ -309,10 +309,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="lsb-im-EZX">
-                                <rect key="frame" x="52.5" y="174" width="309" height="106"/>
+                                <rect key="frame" x="60.5" y="174" width="293" height="106"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="dlP-pB-h2c">
-                                        <rect key="frame" x="0.0" y="0.0" width="309" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="293" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Story 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oyh-5e-kSa">
                                                 <rect key="frame" x="0.0" y="0.0" width="255" height="30"/>
@@ -323,14 +323,18 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ft5-N8-j5b">
-                                                <rect key="frame" x="263" y="0.0" width="46" height="30"/>
-                                                <state key="normal" title="Button"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ft5-N8-j5b">
+                                                <rect key="frame" x="263" y="0.0" width="30" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="30" id="0OS-WJ-45u"/>
+                                                    <constraint firstAttribute="width" secondItem="Ft5-N8-j5b" secondAttribute="height" multiplier="1:1" id="GVc-Vx-Vgu"/>
+                                                </constraints>
+                                                <state key="normal" title="Button" image="questionmark"/>
                                             </button>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Ixd-dh-iGX">
-                                        <rect key="frame" x="0.0" y="38" width="309" height="30"/>
+                                        <rect key="frame" x="0.0" y="38" width="293" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Story 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V2R-ZP-TtR">
                                                 <rect key="frame" x="0.0" y="0.0" width="255" height="30"/>
@@ -341,14 +345,17 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SUi-rC-lEi">
-                                                <rect key="frame" x="263" y="0.0" width="46" height="30"/>
-                                                <state key="normal" title="Button"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SUi-rC-lEi">
+                                                <rect key="frame" x="263" y="0.0" width="30" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="SUi-rC-lEi" secondAttribute="height" multiplier="1:1" id="oRP-LR-2Hd"/>
+                                                </constraints>
+                                                <state key="normal" title="Button" image="questionmark"/>
                                             </button>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="I18-x1-fEU">
-                                        <rect key="frame" x="0.0" y="76" width="309" height="30"/>
+                                        <rect key="frame" x="0.0" y="76" width="293" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Story 3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aXv-AG-IKg">
                                                 <rect key="frame" x="0.0" y="0.0" width="255" height="30"/>
@@ -359,9 +366,12 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u9Q-fD-TXE">
-                                                <rect key="frame" x="263" y="0.0" width="46" height="30"/>
-                                                <state key="normal" title="Button"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u9Q-fD-TXE">
+                                                <rect key="frame" x="263" y="0.0" width="30" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="u9Q-fD-TXE" secondAttribute="height" multiplier="1:1" id="97v-Lh-kty"/>
+                                                </constraints>
+                                                <state key="normal" title="Button" image="questionmark"/>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -500,6 +510,7 @@
     </scenes>
     <resources>
         <image name="info" width="30" height="30"/>
+        <image name="questionmark" width="120" height="120"/>
         <image name="settings" width="30" height="30"/>
         <image name="wackylibsstartscreen" width="364" height="395"/>
     </resources>
