@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    var themeHelper: ThemeHelper?
+    var themeHelper = ThemeHelper()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     }
 
     func setTheme() {
-         let theme = themeHelper?.themePreference
+        let theme = themeHelper.themePreference
         switch theme {
         case "Blue":
             view.backgroundColor = .blue
