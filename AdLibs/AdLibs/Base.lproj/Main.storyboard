@@ -214,6 +214,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="storyTextVew" destination="z54-ty-W5z" id="Sox-XR-vfh"/>
+                        <outlet property="titleLabel" destination="NdE-Le-bUK" id="Qug-vO-fnv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eca-tH-tMJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

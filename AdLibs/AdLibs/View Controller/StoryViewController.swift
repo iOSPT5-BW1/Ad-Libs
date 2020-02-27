@@ -12,26 +12,26 @@ class StoryViewController: UIViewController {
 // MARK: - Properties and Outlets
     
     var adLibController : AdLibController?
-    var storyMode: StoryMode?
+    var adLib: AdLib?
+    var storyMode: Story?
     var themeHelper: ThemeHelper?
     var story = String()
     
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var storyTextVew: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+     
+    }
+    
+    @IBAction func saveButtonTapped(_ sender: UIButton) {
+        guard let adLibController = adLibController,
+        let adLib = adLib else { return }
+        adLibController.updateStory(adLib: adLib, newStory: story)
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

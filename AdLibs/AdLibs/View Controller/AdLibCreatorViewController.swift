@@ -23,7 +23,7 @@ class AdLibCreatorViewController: UIViewController {
     var adLibController: AdLibController?
     var themeHelper: ThemeHelper?
     var adLib: AdLib?
-    var storyMode: StoryMode?
+    var storyMode: Story?
     
     var toStoryView = "SegueToStoryView"
     override func viewDidLoad() {
@@ -58,7 +58,10 @@ class AdLibCreatorViewController: UIViewController {
         if segue.identifier == toStoryView {
             guard let destination = segue.destination as? StoryViewController else { return }
             destination.adLibController = adLibController
+            destination.adLib = adLib
             destination.storyMode = storyMode
+            destination.themeHelper = themeHelper
+            
         }
     }
     
