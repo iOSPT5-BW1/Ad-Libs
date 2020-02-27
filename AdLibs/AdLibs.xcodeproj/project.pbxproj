@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05AD2A17240767E30051AC59 /* AdLibCreatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AD2A16240767E30051AC59 /* AdLibCreatorViewController.swift */; };
+		05AD2A1924076A880051AC59 /* StoryMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AD2A1824076A880051AC59 /* StoryMode.swift */; };
 		38AF8E862406FCC400608D01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AF8E852406FCC400608D01 /* AppDelegate.swift */; };
 		38AF8E882406FCC400608D01 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AF8E872406FCC400608D01 /* SceneDelegate.swift */; };
 		38AF8E8A2406FCC400608D01 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AF8E892406FCC400608D01 /* ViewController.swift */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		05AD2A16240767E30051AC59 /* AdLibCreatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdLibCreatorViewController.swift; sourceTree = "<group>"; };
+		05AD2A1824076A880051AC59 /* StoryMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryMode.swift; sourceTree = "<group>"; };
 		38AF8E822406FCC400608D01 /* AdLibs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdLibs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38AF8E852406FCC400608D01 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		38AF8E872406FCC400608D01 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -43,6 +47,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		05AD2A122407670C0051AC59 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		05AD2A13240767100051AC59 /* Model Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Model Controller";
+			sourceTree = "<group>";
+		};
+		05AD2A14240767130051AC59 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				05AD2A16240767E30051AC59 /* AdLibCreatorViewController.swift */,
+			);
+			path = "View Controller";
+			sourceTree = "<group>";
+		};
+		05AD2A15240767160051AC59 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				05AD2A1824076A880051AC59 /* StoryMode.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		38AF8E792406FCC400608D01 = {
 			isa = PBXGroup;
 			children = (
@@ -62,6 +96,10 @@
 		38AF8E842406FCC400608D01 /* AdLibs */ = {
 			isa = PBXGroup;
 			children = (
+				05AD2A15240767160051AC59 /* Views */,
+				05AD2A14240767130051AC59 /* View Controller */,
+				05AD2A13240767100051AC59 /* Model Controller */,
+				05AD2A122407670C0051AC59 /* Model */,
 				38AF8E852406FCC400608D01 /* AppDelegate.swift */,
 				38AF8E872406FCC400608D01 /* SceneDelegate.swift */,
 				38AF8E892406FCC400608D01 /* ViewController.swift */,
@@ -155,8 +193,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05AD2A1924076A880051AC59 /* StoryMode.swift in Sources */,
 				38AF8E8A2406FCC400608D01 /* ViewController.swift in Sources */,
 				38AF8E862406FCC400608D01 /* AppDelegate.swift in Sources */,
+				05AD2A17240767E30051AC59 /* AdLibCreatorViewController.swift in Sources */,
 				38AF8E882406FCC400608D01 /* SceneDelegate.swift in Sources */,
 				38AF8EA024070FAF00608D01 /* ThemeHelper.swift in Sources */,
 				38AF8E9A24070B6200608D01 /* SettingsViewController.swift in Sources */,
