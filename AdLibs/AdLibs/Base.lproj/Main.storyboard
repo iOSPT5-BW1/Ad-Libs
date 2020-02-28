@@ -455,6 +455,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </collectionViewCellContentView>
+                                <connections>
+                                    <segue destination="OLh-J4-u9J" kind="show" identifier="showAdlibSegue" id="NQ1-9i-nFm"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -466,7 +469,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jAK-EE-200" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2808.6956521739135" y="822.99107142857144"/>
+            <point key="canvasLocation" x="2796" y="1033"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ANR-C4-LZx">
@@ -512,7 +515,7 @@
         <image name="wackylibsstartscreen" width="364" height="395"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="yQD-Gp-Uh4"/>
+        <segue reference="NQ1-9i-nFm"/>
         <segue reference="SLm-Kn-tiW"/>
     </inferredMetricsTieBreakers>
 </document>
