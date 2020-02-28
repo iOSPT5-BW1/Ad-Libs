@@ -162,8 +162,8 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ybj-rZ-u3A">
-                                <rect key="frame" x="167.5" y="728" width="79" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ybj-rZ-u3A">
+                                <rect key="frame" x="167.5" y="678" width="79" height="30"/>
                                 <state key="normal" title="Show Story"/>
                                 <connections>
                                     <segue destination="OLh-J4-u9J" kind="show" identifier="SegueToStoryView" id="yQD-Gp-Uh4"/>
@@ -173,9 +173,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="s5o-DU-sKK" firstAttribute="top" secondItem="v6d-m0-E2B" secondAttribute="bottom" constant="35" id="6ou-2X-VX7"/>
-                            <constraint firstItem="H86-RE-17I" firstAttribute="bottom" secondItem="ybj-rZ-u3A" secondAttribute="bottom" constant="50" id="722-5j-rdn"/>
                             <constraint firstItem="v6d-m0-E2B" firstAttribute="centerX" secondItem="sHB-Q8-n9I" secondAttribute="centerX" id="AAt-WR-uPV"/>
                             <constraint firstItem="H86-RE-17I" firstAttribute="trailing" secondItem="s5o-DU-sKK" secondAttribute="trailing" constant="12" id="Gx4-rv-jz4"/>
+                            <constraint firstItem="ybj-rZ-u3A" firstAttribute="top" relation="greaterThanOrEqual" secondItem="s5o-DU-sKK" secondAttribute="bottom" constant="30" id="Usb-d6-70a"/>
                             <constraint firstItem="v6d-m0-E2B" firstAttribute="top" secondItem="H86-RE-17I" secondAttribute="top" constant="50" id="bXI-kI-eqR"/>
                             <constraint firstItem="s5o-DU-sKK" firstAttribute="leading" secondItem="H86-RE-17I" secondAttribute="leading" constant="12" id="heO-uT-7un"/>
                             <constraint firstItem="ybj-rZ-u3A" firstAttribute="centerX" secondItem="sHB-Q8-n9I" secondAttribute="centerX" id="ldt-Mt-Jf9"/>
@@ -184,12 +184,17 @@
                     </view>
                     <navigationItem key="navigationItem" id="5Ju-je-bjw"/>
                     <connections>
-                        <outlet property="adjectiveTextField" destination="2OW-rh-thq" id="zdK-o7-lEO"/>
-                        <outlet property="adverbTextField" destination="dDB-EU-5bw" id="Wsv-bZ-FAt"/>
+                        <outlet property="adjectiveTextField1" destination="2OW-rh-thq" id="zdK-o7-lEO"/>
+                        <outlet property="adjectiveTextField2" destination="E3K-fJ-F0g" id="Wep-qu-4yy"/>
+                        <outlet property="adverbTextField1" destination="dDB-EU-5bw" id="Wsv-bZ-FAt"/>
+                        <outlet property="adverbTextField2" destination="prE-tR-wzO" id="KB1-da-1mi"/>
                         <outlet property="colorTextView" destination="VxE-OD-Lp5" id="uch-15-HuR"/>
-                        <outlet property="nounTextField" destination="skm-ss-xFU" id="now-Q9-IHe"/>
-                        <outlet property="pronounTextField" destination="Pvy-TI-ifa" id="scW-3H-SKp"/>
-                        <outlet property="verbTextField" destination="6P0-HR-TUf" id="tIL-b8-F9f"/>
+                        <outlet property="nounTextField1" destination="skm-ss-xFU" id="now-Q9-IHe"/>
+                        <outlet property="nounTextField2" destination="fAp-Tb-fGJ" id="Jf0-XT-o3O"/>
+                        <outlet property="pronounTextField1" destination="Pvy-TI-ifa" id="scW-3H-SKp"/>
+                        <outlet property="pronounTextField2" destination="jWZ-AJ-doH" id="yj5-Ic-g08"/>
+                        <outlet property="verbTextField1" destination="6P0-HR-TUf" id="tIL-b8-F9f"/>
+                        <outlet property="verbTextField2" destination="zCT-ee-tSo" id="nAW-Ng-dAJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xpx-ik-Rl4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -515,7 +520,7 @@
         <image name="wackylibsstartscreen" width="364" height="395"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="NQ1-9i-nFm"/>
+        <segue reference="yQD-Gp-Uh4"/>
         <segue reference="SLm-Kn-tiW"/>
     </inferredMetricsTieBreakers>
 </document>
