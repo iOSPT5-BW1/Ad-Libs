@@ -86,7 +86,6 @@
 		05AD2A15240767160051AC59 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				05AD2A1824076A880051AC59 /* StoryMode.swift */,
 				38AF8EA624086A2400608D01 /* AdLibBookCollectionViewCell.swift */,
 			);
 			path = Views;
