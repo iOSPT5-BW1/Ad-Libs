@@ -64,17 +64,15 @@ class AdLibCreatorViewController: UIViewController {
             adLib.story = story1
             adLibController?.updateStory(adLib: adLib, newStory: adLib.story)
         }
-        
-        
     }
     
     @IBAction func showStoryTapped(_ sender: UIButton) {
         guard let title = titleTextField.text,
-            let noun = nounTextField.text,
-            let verb = verbTextField.text,
-            let pronoun = pronounTextField.text,
-            let adjective = adjectiveTextField.text,
-            let adverb = adverbTextField.text,
+            let noun = nounTextField1.text,
+            let verb = verbTextField1.text,
+            let pronoun = pronounTextField1.text,
+            let adjective = adjectiveTextField1.text,
+            let adverb = adverbTextField1.text,
             let color = colorTextView.text,
             !title.isEmpty,
             !noun.isEmpty,
@@ -85,20 +83,18 @@ class AdLibCreatorViewController: UIViewController {
             !color.isEmpty else { return }
         guard let adLibController = adLibController else { return }
         adLibController.createAdLib(title: title, noun: noun, pronoun: pronoun, verb: verb, adjective: adjective, adverb: adverb, color: color)
-        
+       
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == toStoryView {
+        
+        if segue.identifier == "SegueToStoryView" {
             let destination = segue.destination as! StoryViewController
             destination.adLibController = adLibController
-            destination.adLib = adLib
+            destination.adLib = adLibController?.adLibs[0]
             destination.story = story
-            
         }
     }
-    
-    
 }
 
 
