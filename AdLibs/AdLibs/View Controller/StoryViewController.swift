@@ -19,12 +19,9 @@ class StoryViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var storyTextVew: UITextView!
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
-
      
     }
     
@@ -33,7 +30,6 @@ class StoryViewController: UIViewController {
         
     navigationController?.popViewController(animated: true)
     dismiss(animated: true, completion: nil)
-
     }
     
     func updateViews(){

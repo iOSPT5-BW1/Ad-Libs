@@ -64,8 +64,6 @@ class AdLibCreatorViewController: UIViewController {
             adLib.story = story1
             adLibController?.updateStory(adLib: adLib, newStory: adLib.story)
         }
-        
-        
     }
     
     @IBAction func showStoryTapped(_ sender: UIButton) {
@@ -85,20 +83,18 @@ class AdLibCreatorViewController: UIViewController {
             !color.isEmpty else { return }
         guard let adLibController = adLibController else { return }
         adLibController.createAdLib(title: title, noun: noun, pronoun: pronoun, verb: verb, adjective: adjective, adverb: adverb, color: color)
-        
+       
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == toStoryView {
+        
+        if segue.identifier == "SegueToStoryView" {
             let destination = segue.destination as! StoryViewController
             destination.adLibController = adLibController
-            destination.adLib = adLib
+            destination.adLib = adLibController?.adLibs[0]
             destination.story = story
-            
         }
     }
-    
-    
 }
 
 
