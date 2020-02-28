@@ -13,25 +13,33 @@ class StoryViewController: UIViewController {
     
     var adLibController : AdLibController?
     var adLib: AdLib?
-    var storyMode: Story?
+    var story: Story?
     var themeHelper: ThemeHelper?
-    var story = String()
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var storyTextVew: UITextView!
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateViews()
 
      
     }
     
     @IBAction func saveButtonTapped(_ sender: UIButton) {
-        guard let adLibController = adLibController,
-        let adLib = adLib else { return }
-        adLibController.updateStory(adLib: adLib, newStory: story)
+        guard adLib != nil else { return }
+        
+    navigationController?.popViewController(animated: true)
+    dismiss(animated: true, completion: nil)
+
     }
     
-
-
+    func updateViews(){
+        guard let adLib = adLib,
+            isViewLoaded else { return }
+        titleLabel.text = adLib.title
+        storyTextVew.text = adLib.story
+    }
 }
