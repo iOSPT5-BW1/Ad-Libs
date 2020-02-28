@@ -29,6 +29,7 @@ class AdLibController {
         
         let adLib = AdLib(title: title, noun: noun, pronoun: pronoun, verb: verb, adjective: adjective, adverb: adverb, color: color)
         adLibs.append(adLib)
+        print("\(adLib)")
         saveToPersistentStore()
         return adLib
     }

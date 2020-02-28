@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dEp-vk-Z7f">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dEp-vk-Z7f">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Ad Libs View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="AdLibs" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="AdLibsViewController" customModule="AdLibs" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -34,7 +34,7 @@
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <segue destination="LrF-2V-Yax" kind="show" id="CSv-i4-Deh"/>
+                                            <segue destination="LrF-2V-Yax" kind="show" identifier="StartAdLibSegue" id="CSv-i4-Deh"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aVC-im-PYa">
@@ -166,6 +166,7 @@
                                 <rect key="frame" x="167.5" y="678" width="79" height="30"/>
                                 <state key="normal" title="Show Story"/>
                                 <connections>
+                                    <action selector="showStoryTapped:" destination="LrF-2V-Yax" eventType="touchUpInside" id="hSi-Nc-Zde"/>
                                     <segue destination="OLh-J4-u9J" kind="show" identifier="SegueToStoryView" id="yQD-Gp-Uh4"/>
                                 </connections>
                             </button>
@@ -193,6 +194,7 @@
                         <outlet property="nounTextField2" destination="fAp-Tb-fGJ" id="Jf0-XT-o3O"/>
                         <outlet property="pronounTextField1" destination="Pvy-TI-ifa" id="scW-3H-SKp"/>
                         <outlet property="pronounTextField2" destination="jWZ-AJ-doH" id="yj5-Ic-g08"/>
+                        <outlet property="titleTextField" destination="skm-ss-xFU" id="CIO-Xk-Msr"/>
                         <outlet property="verbTextField1" destination="6P0-HR-TUf" id="tIL-b8-F9f"/>
                         <outlet property="verbTextField2" destination="zCT-ee-tSo" id="nAW-Ng-dAJ"/>
                     </connections>
@@ -447,19 +449,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dmS-gy-2Hd">
-                            <size key="itemSize" width="50" height="50"/>
+                            <size key="itemSize" width="102" height="90"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="wLV-VI-KF9">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <rect key="frame" x="0.0" y="0.0" width="102" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="FIP-KG-AFJ">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="102" height="90"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </collectionViewCellContentView>
+                                <size key="customSize" width="102" height="90"/>
                                 <connections>
                                     <segue destination="OLh-J4-u9J" kind="show" identifier="showAdlibSegue" id="NQ1-9i-nFm"/>
                                 </connections>
@@ -474,7 +477,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jAK-EE-200" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2796" y="1033"/>
+            <point key="canvasLocation" x="2795.6521739130435" y="1032.5892857142858"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ANR-C4-LZx">
@@ -520,7 +523,7 @@
         <image name="wackylibsstartscreen" width="364" height="395"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="yQD-Gp-Uh4"/>
+        <segue reference="NQ1-9i-nFm"/>
         <segue reference="7e3-yI-nek"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -8,9 +8,10 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class AdLibsViewController: UIViewController {
 
     var themeHelper = ThemeHelper()
+    var adLibController = AdLibController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +19,13 @@ class ViewController: UIViewController {
         setTheme()
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "StartAdLibSegue" {
+            let adLibVC = segue.destination as! AdLibCreatorViewController
+            adLibVC.adLibController = adLibController
+        }
+    }
+    
     func setTheme() {
         let theme = themeHelper.themePreference
         switch theme {
@@ -35,9 +43,10 @@ class ViewController: UIViewController {
             break
         }
     }
+    
 }
 
-extension ViewController: ThemeSelectedDelegate {
+extension AdLibsViewController: ThemeSelectedDelegate {
     func themeChosen() {
         setTheme()
     }

@@ -70,11 +70,11 @@ class AdLibCreatorViewController: UIViewController {
     
     @IBAction func showStoryTapped(_ sender: UIButton) {
         guard let title = titleTextField.text,
-            let noun = nounTextField.text,
-            let verb = verbTextField.text,
-            let pronoun = pronounTextField.text,
-            let adjective = adjectiveTextField.text,
-            let adverb = adverbTextField.text,
+            let noun = nounTextField1.text,
+            let verb = verbTextField1.text,
+            let pronoun = pronounTextField1.text,
+            let adjective = adjectiveTextField1.text,
+            let adverb = adverbTextField1.text,
             let color = colorTextView.text,
             !title.isEmpty,
             !noun.isEmpty,
