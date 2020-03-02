@@ -29,7 +29,7 @@ class StoryViewController: UIViewController {
     
     @IBAction func saveButtonTapped(_ sender: UIButton) {
         guard adLib != nil else { return }
-        
+        adLibController?.createAdLib(adLib: adLib!)
     navigationController?.popViewController(animated: true)
     }
     
