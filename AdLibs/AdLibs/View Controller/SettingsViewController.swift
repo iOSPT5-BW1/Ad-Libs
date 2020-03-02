@@ -12,7 +12,6 @@ protocol ThemeSelectedDelegate {
     func themeChosen()
 }
 class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
-    var themeHelper = ThemeHelper()
     var pickerData = ["Blue", "Dark", "Green", "Purple", "Teal"]
     
     @IBOutlet weak var themePicker: UIPickerView!
@@ -23,13 +22,21 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     @IBOutlet weak var storyLabel2: UILabel!
     @IBOutlet weak var storyLabel3: UILabel!
     
-    var themeDelegate: ThemeSelectedDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         themePicker.delegate = self
+        themePicker.layer.borderColor = UIColor.gray.cgColor
+        themePicker.layer.borderWidth = 2.5
+        themePicker.layer.cornerRadius = 7.5
+
         updateViews()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+           super.viewWillAppear(true)
+           setTheme()
+       }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         1
@@ -44,40 +51,22 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        let themePicked = pickerData[themePicker.selectedRow(inComponent: 0)]
-        switch themePicked {
-        case "Blue":
-            themeHelper.setThemePreferenceToBlue()
-        case "Dark":
-            themeHelper.setThemePreferenceToDark()
-        case "Green":
-            themeHelper.setThemePreferenceToGreen()
-        case "Purple":
-            themeHelper.setThemePreferenceToPurple()
-        case "Teal":
-            themeHelper.setThemePreferenceToTeal()
-        default:
-            break
-        }
-        choseTheme()
+        Settings.shared.changeBackground = themePicker.selectedRow(inComponent: 0)
+        UserDefaults.standard.set(Settings.shared.changeBackground, forKey: "themeSet")
+        setTheme()
     }
-    
-    func choseTheme() {
-        themeDelegate?.themeChosen()
-    }
-    
+ 
     func setTheme() {
-        guard let theme = themeHelper.themePreference else { return }
-        switch theme {
-        case "Blue":
+        switch Settings.shared.changeBackground {
+        case 0:
             view.backgroundColor = .blue
-        case "Dark":
+        case 1:
             view.backgroundColor = .darkGray
-        case "Green":
+        case 2:
             view.backgroundColor = .systemGreen
-        case "Purple":
+        case 3:
             view.backgroundColor = .systemPurple
-        case "Teal":
+        case 4:
             view.backgroundColor = .systemTeal
         default:
             break
@@ -88,16 +77,6 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         setTheme()
     }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
     @IBAction func story1Switch(_ sender: Any) {
     }
     @IBAction func story2Switch(_ sender: Any) {
@@ -106,6 +85,6 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     }
     
     @IBAction func selectSettingsButtonTapped(_ sender: Any) {
+        setTheme()
     }
-    
 }

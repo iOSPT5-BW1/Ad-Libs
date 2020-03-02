@@ -14,28 +14,50 @@ class StoryViewController: UIViewController {
     var adLibController : AdLibController?
     var adLib: AdLib?
     var story: Story?
-    var themeHelper: ThemeHelper?
     
-    @IBOutlet weak var titleLabel: UILabel!
+   
+    @IBOutlet weak var adlibTitleField: UITextField!
     @IBOutlet weak var storyTextVew: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        adlibTitleField.backgroundColor = UIColor(white: 1, alpha: 0.45)
+        storyTextVew.backgroundColor = UIColor(white: 1, alpha: 0.75)
         updateViews()
-     
     }
     
     @IBAction func saveButtonTapped(_ sender: UIButton) {
         guard adLib != nil else { return }
         
     navigationController?.popViewController(animated: true)
-    dismiss(animated: true, completion: nil)
     }
     
+       override func viewWillAppear(_ animated: Bool) {
+              super.viewWillAppear(true)
+              setTheme()
+          }
+    
     func updateViews(){
-        guard let adLib = adLib,
-            isViewLoaded else { return }
-        titleLabel.text = adLib.title
+        guard let adLib = adLib else { return }
         storyTextVew.text = adLib.story
+        setTheme()
+    }
+    
+    func setTheme() {
+        switch Settings.shared.changeBackground {
+        case 0:
+            view.backgroundColor = .blue
+        case 1:
+            view.backgroundColor = .darkGray
+        case 2:
+            view.backgroundColor = .systemGreen
+        case 3:
+            view.backgroundColor = .systemPurple
+        case 4:
+            view.backgroundColor = .systemTeal
+        default:
+            break
+        }
     }
 }
