@@ -12,16 +12,11 @@ class AdLibCreatorViewController: UIViewController {
     
     //    MARK: - Properties and Outlets
     
-    @IBOutlet weak var nounTextField1: UITextField!
-    @IBOutlet weak var nounTextField2: UITextField!
-    @IBOutlet weak var verbTextField1: UITextField!
-    @IBOutlet weak var verbTextField2: UITextField!
-    @IBOutlet weak var pronounTextField1: UITextField!
-    @IBOutlet weak var pronounTextField2: UITextField!
-    @IBOutlet weak var adjectiveTextField1: UITextField!
-    @IBOutlet weak var adjectiveTextField2: UITextField!
-    @IBOutlet weak var adverbTextField1: UITextField!
-    @IBOutlet weak var adverbTextField2: UITextField!
+    @IBOutlet weak var nounTextField: UITextField!
+    @IBOutlet weak var verbTextField: UITextField!
+    @IBOutlet weak var pronounTextField: UITextField!
+    @IBOutlet weak var adjectiveTextField: UITextField!
+    @IBOutlet weak var adverbTextField: UITextField!
     @IBOutlet weak var colorTextView: UITextField!
     
     var adLibController: AdLibController?
@@ -34,20 +29,13 @@ class AdLibCreatorViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       //titleTextField.backgroundColor = UIColor(white: 1, alpha: 0.75)
-        nounTextField1.backgroundColor = UIColor(white: 1, alpha: 0.75)
-        nounTextField2.backgroundColor = UIColor(white: 1, alpha: 0.75)
-        verbTextField1.backgroundColor = UIColor(white: 1, alpha: 0.75)
-        verbTextField2.backgroundColor = UIColor(white: 1, alpha: 0.75)
-        pronounTextField1.backgroundColor = UIColor(white: 1, alpha: 0.75)
-        pronounTextField2.backgroundColor = UIColor(white: 1, alpha: 0.75)
-        adjectiveTextField1.backgroundColor = UIColor(white: 1, alpha: 0.75)
-        adjectiveTextField2.backgroundColor = UIColor(white: 1, alpha: 0.75)
-        adverbTextField1.backgroundColor = UIColor(white: 1, alpha: 0.75)
-        adverbTextField2.backgroundColor = UIColor(white: 1, alpha: 0.75)
+        nounTextField.backgroundColor = UIColor(white: 1, alpha: 0.75)
+        verbTextField.backgroundColor = UIColor(white: 1, alpha: 0.75)
+        pronounTextField.backgroundColor = UIColor(white: 1, alpha: 0.75)
+        adjectiveTextField.backgroundColor = UIColor(white: 1, alpha: 0.75)
+        adverbTextField.backgroundColor = UIColor(white: 1, alpha: 0.75)
         colorTextView.backgroundColor = UIColor(white: 1, alpha: 0.75)
         updateViews()
-        
     }
     
     func updateViews() {
@@ -79,11 +67,11 @@ class AdLibCreatorViewController: UIViewController {
     }
     
     @IBAction func showStoryTapped(_ sender: UIButton) {
-        guard let noun = nounTextField1.text,
-            let verb = verbTextField1.text,
-            let pronoun = pronounTextField1.text,
-            let adjective = adjectiveTextField1.text,
-            let adverb = adverbTextField1.text,
+        guard let noun = nounTextField.text,
+            let verb = verbTextField.text,
+            let pronoun = pronounTextField.text,
+            let adjective = adjectiveTextField.text,
+            let adverb = adverbTextField.text,
             let color = colorTextView.text,
             !noun.isEmpty,
             !verb.isEmpty,
@@ -94,7 +82,6 @@ class AdLibCreatorViewController: UIViewController {
         guard let adLibController = adLibController else { return }
         adLibController.createAdLibBody(noun: noun, pronoun: pronoun, verb: verb, adjective: adjective, adverb: adverb, color: color)
         storySelector(adLib: adLib!)
-        // maybe write a separate create adlib to setup a single element array for input storage
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -103,7 +90,6 @@ class AdLibCreatorViewController: UIViewController {
             destination.adLibController = adLibController
             destination.adLib = adLibController?.adLibs[0]
             destination.story = story
-            
         }
     }
     

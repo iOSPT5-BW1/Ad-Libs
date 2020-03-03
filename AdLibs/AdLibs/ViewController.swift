@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    
+   var adlibcontroller = AdLibController()
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -22,8 +22,16 @@ class ViewController: UIViewController {
         setTheme()
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "StartAdLibSegue" {
+            let destination = segue.destination as! AdLibCreatorViewController
+            destination.adLibController = adlibcontroller
+        }
+    }
+    
+    
+    
     func setTheme() {
-       // let theme = themeHelper.themePreference
         switch Settings.shared.changeBackground {
         case 0:
             view.backgroundColor = .blue
@@ -38,20 +46,6 @@ class ViewController: UIViewController {
         default:
             break
         }
-//        switch theme {
-//        case "Blue":
-//            view.backgroundColor = .blue
-//        case "Dark":
-//            view.backgroundColor = .darkGray
-//        case "Green":
-//            view.backgroundColor = .systemGreen
-//        case "Purple":
-//            view.backgroundColor = .systemPurple
-//        case "Teal":
-//            view.backgroundColor = .systemTeal
-//        default:
-//            break
-//        }
     }
 }
 
