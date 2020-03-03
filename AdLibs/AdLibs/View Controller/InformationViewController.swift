@@ -17,7 +17,7 @@ class InformationViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        infoTextView.backgroundColor = UIColor(white: 1, alpha: 0.75)
+        infoTextView.backgroundColor = UIColor(white: 1, alpha: 0.65)
         updateViews()
     }
     

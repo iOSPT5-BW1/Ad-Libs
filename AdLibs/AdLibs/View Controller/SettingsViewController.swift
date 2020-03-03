@@ -22,10 +22,11 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     override func viewDidLoad() {
         super.viewDidLoad()
         themePicker.delegate = self
+        themePicker.backgroundColor = UIColor(white: 1, alpha: 0.35)
         themePicker.layer.borderColor = UIColor.white.cgColor
         themePicker.layer.borderWidth = 2.5
         themePicker.layer.cornerRadius = 7.5
-       customiseButton(sender: 0)
+        customiseButton(sender: 0)
         
         updateViews()
     }
