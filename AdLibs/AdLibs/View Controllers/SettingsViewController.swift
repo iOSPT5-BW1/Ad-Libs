@@ -26,12 +26,12 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         themePicker.layer.borderColor = UIColor.white.cgColor
         themePicker.layer.borderWidth = 2.5
         themePicker.layer.cornerRadius = 7.5
-        customiseButton(sender: 0)
+        customizeButtons(sender: 0)
         
         updateViews()
     }
     
-    func customiseButton(sender: Int) {
+    func customizeButtons(sender: Int) {
         switch sender {
         case 0:
             story1Button.layer.borderColor = UIColor.red.cgColor
@@ -40,6 +40,9 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             story1Button.backgroundColor = UIColor.init(red: 255/255, green: 0/255, blue: 0/255, alpha: 0.55)
             story2Button.layer.borderColor = UIColor.clear.cgColor
             story2Button.layer.borderColor = UIColor.clear.cgColor
+            story2Button.backgroundColor = .clear
+            story3Button.backgroundColor = .clear
+            Settings.shared.story = .story1
         case 1:
             story2Button.layer.borderColor = UIColor.red.cgColor
             story2Button.layer.borderWidth = 2.5
@@ -47,6 +50,9 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             story2Button.backgroundColor = UIColor.init(red: 255/255, green: 0/255, blue: 0/255, alpha: 0.55)
             story1Button.layer.borderColor = UIColor.clear.cgColor
             story3Button.layer.borderColor = UIColor.clear.cgColor
+            story1Button.backgroundColor = .clear
+            story3Button.backgroundColor = .clear
+            Settings.shared.story = .story2
         case 2:
             story3Button.layer.borderColor = UIColor.red.cgColor
             story3Button.layer.borderWidth = 2.5
@@ -54,6 +60,10 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             story3Button.backgroundColor = UIColor.init(red: 255/255, green: 0/255, blue: 0/255, alpha: 0.55)
             story1Button.layer.borderColor = UIColor.clear.cgColor
             story2Button.layer.borderColor = UIColor.clear.cgColor
+            story1Button.backgroundColor = .clear
+            story2Button.backgroundColor = .clear
+            Settings.shared.story = .story3
+
         default:
             break
         }
@@ -89,7 +99,8 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         case 1:
             view.backgroundColor = .darkGray
         case 2:
-            view.backgroundColor = .systemGreen
+           // view.backgroundColor = .systemGreen
+            view.backgroundColor = UIColor(red: 129/255, green: 194/255, blue: 183/255, alpha: 1.0)
         case 3:
             view.backgroundColor = .systemPurple
         case 4:
@@ -106,20 +117,11 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     @IBAction func storySelectButtonPressed(_ sender: UIButton) {
         switch sender.tag {
         case 0:
-            customiseButton(sender: sender.tag)
-            story2Button.backgroundColor = .clear
-            story3Button.backgroundColor = .clear
-            Settings.shared.story = .story1
+            customizeButtons(sender: sender.tag)
         case 1:
-            customiseButton(sender: sender.tag)
-            story1Button.backgroundColor = .clear
-            story3Button.backgroundColor = .clear
-            Settings.shared.story = .story2
+            customizeButtons(sender: sender.tag)
         case 2:
-            customiseButton(sender: sender.tag)
-            story1Button.backgroundColor = .clear
-            story2Button.backgroundColor = .clear
-            Settings.shared.story = .story3
+            customizeButtons(sender: sender.tag)
         default:
             break
         }

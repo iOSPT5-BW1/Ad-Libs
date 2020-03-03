@@ -27,11 +27,11 @@ class StoryViewController: UIViewController {
         updateViews()
     }
     
-    @IBAction func saveButtonTapped(_ sender: UIButton) {
-        guard adLib != nil else { return }
-        adLibController?.createAdLib(adLib: adLib!)
-    navigationController?.popViewController(animated: true)
-    }
+//    @IBAction func saveButtonTapped(_ sender: UIButton) {
+//        guard adLib != nil else { return }
+//        adLibController?.createAdLib(adLib: adLib!)
+//    navigationController?.popViewController(animated: true)
+//    }
     
        override func viewWillAppear(_ animated: Bool) {
               super.viewWillAppear(true)
@@ -51,7 +51,8 @@ class StoryViewController: UIViewController {
         case 1:
             view.backgroundColor = .darkGray
         case 2:
-            view.backgroundColor = .systemGreen
+           // view.backgroundColor = .systemGreen
+            view.backgroundColor = UIColor(red: 129/255, green: 194/255, blue: 183/255, alpha: 1.0)
         case 3:
             view.backgroundColor = .systemPurple
         case 4:

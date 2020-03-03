@@ -100,7 +100,8 @@ class AdLibCreatorViewController: UIViewController {
         case 1:
             view.backgroundColor = .darkGray
         case 2:
-            view.backgroundColor = .systemGreen
+            //view.backgroundColor = .systemGreen
+            view.backgroundColor = UIColor(red: 129/255, green: 194/255, blue: 183/255, alpha: 1.0)
         case 3:
             view.backgroundColor = .systemPurple
         case 4:

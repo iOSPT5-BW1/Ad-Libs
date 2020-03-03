@@ -12,7 +12,6 @@ class Settings {
     static let shared = Settings()
     private init() {}
     var story: Story = .story1
-    var changeBackground = UserDefaults.standard.integer(forKey: "themeSet")
- 
+    var changeBackground = UserDefaults.standard.integer(forKey: "themeSet") 
 }
 

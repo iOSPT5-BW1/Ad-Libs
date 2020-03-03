@@ -26,10 +26,6 @@ class AdLibController {
         loadFromPersistentStore()
     }
     
-    @discardableResult func createAdLib(adLib: AdLib) {
-        
-    }
-    
     @discardableResult func createAdLibBody(noun: String, pronoun: String, verb: String, adjective: String, adverb: String, color: String) -> AdLib {
         let adLib = AdLib(noun: noun, pronoun: pronoun, verb: verb, adjective: adjective, adverb: adverb, color: color)
         adLibs.append(adLib)
