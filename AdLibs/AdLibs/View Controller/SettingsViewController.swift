@@ -25,10 +25,7 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         themePicker.layer.borderColor = UIColor.white.cgColor
         themePicker.layer.borderWidth = 2.5
         themePicker.layer.cornerRadius = 7.5
-        story1Button.layer.borderColor = UIColor.red.cgColor
-        story1Button.layer.borderWidth = 2.5
-        story1Button.layer.cornerRadius = 8.0
-        story1Button.backgroundColor = UIColor.init(red: 255/255, green: 0/255, blue: 0/255, alpha: 0.55)
+       customiseButton(sender: 0)
         
         updateViews()
     }
