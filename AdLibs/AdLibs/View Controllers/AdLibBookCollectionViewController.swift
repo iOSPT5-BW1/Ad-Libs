@@ -15,6 +15,7 @@ class AdLibBookCollectionViewController: UICollectionViewController {
     var adLib: AdLib?
     var adlibController = AdLibController()
     var storyViewController = StoryViewController()
+   
     override func viewDidLoad() {
         super.viewDidLoad()
 

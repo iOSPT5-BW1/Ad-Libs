@@ -25,11 +25,10 @@ class AdLibController {
     init() {
         loadFromPersistentStore()
     }
-    @discardableResult func createAdLib(title: String, noun: String, pronoun: String, verb: String, adjective: String, adverb: String, color: String) -> AdLib {
-        
-        let adLib = AdLib(title: title, noun: noun, pronoun: pronoun, verb: verb, adjective: adjective, adverb: adverb, color: color)
+    
+    @discardableResult func createAdLibBody(noun: String, pronoun: String, verb: String, adjective: String, adverb: String, color: String) -> AdLib {
+        let adLib = AdLib(noun: noun, pronoun: pronoun, verb: verb, adjective: adjective, adverb: adverb, color: color)
         adLibs.append(adLib)
-        print("\(adLib)")
         saveToPersistentStore()
         return adLib
     }
@@ -46,9 +45,6 @@ class AdLibController {
     
     func saveToPersistentStore() {
         guard let url = persistentFileURL else { return }
-        //we need to convert the data in the file into nits of data that can be encoded
-        //in order to do this we need to ensure the model is encodable
-        //now we need to encode into data for plist
         do {
             let encoder = PropertyListEncoder()//we need a plist encoder = property list
             let data = try encoder.encode(adLibs) //this is how we actually encode our model object

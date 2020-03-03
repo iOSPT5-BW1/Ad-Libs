@@ -18,7 +18,7 @@ struct AdLib: Codable, Equatable {
     var color: String
     var story: String
     
-    init(title: String, noun: String, pronoun: String, verb: String, adjective: String, adverb: String, color: String, story: String = " ") {
+    init(title: String = "", noun: String, pronoun: String, verb: String, adjective: String, adverb: String, color: String, story: String = " ") {
         self.title = title
         self.noun = noun
         self.pronoun = pronoun
