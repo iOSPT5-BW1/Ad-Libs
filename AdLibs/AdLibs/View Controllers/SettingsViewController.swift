@@ -12,7 +12,7 @@ protocol ThemeSelectedDelegate {
     func themeChosen()
 }
 class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
-    var pickerData = ["Blue", "Dark", "Green", "Purple", "Teal"]
+    var pickerData = ["Blue", "Dark", "Cyan", "Purple", "Teal"]
     
     @IBOutlet weak var themePicker: UIPickerView!
     @IBOutlet weak var story1Button: UIButton!
