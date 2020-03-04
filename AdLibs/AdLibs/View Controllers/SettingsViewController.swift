@@ -22,6 +22,9 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     override func viewDidLoad() {
         super.viewDidLoad()
         themePicker.delegate = self
+        themePicker.selectRow(Settings.shared.changeBackground, inComponent:
+            0, animated: true)
+        //= Settings.shared.changeBackground
         themePicker.backgroundColor = UIColor(white: 1, alpha: 0.35)
         themePicker.layer.borderColor = UIColor.white.cgColor
         themePicker.layer.borderWidth = 2.5
