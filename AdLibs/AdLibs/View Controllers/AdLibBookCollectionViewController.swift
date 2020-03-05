@@ -9,7 +9,7 @@
 import UIKit
 
 private let reuseIdentifier = "Cell"
-
+private let collectionViewIdentifier = "AdLibListCollectionSegue"
 class AdLibBookCollectionViewController: UICollectionViewController {
 
     var adLib: AdLib?
@@ -46,7 +46,7 @@ class AdLibBookCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return adlibController.adLibs.count
+        return adlibController.storyList.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -88,4 +88,20 @@ class AdLibBookCollectionViewController: UICollectionViewController {
     }
     */
 
+    func setTheme() {
+        switch Settings.shared.changeBackground {
+        case 0:
+            collectionView.backgroundColor = .blue
+        case 1:
+            collectionView.backgroundColor = .darkGray
+        case 2:
+            collectionView.backgroundColor = UIColor(red: 129/255, green: 194/255, blue: 183/255, alpha: 1.0)
+        case 3:
+            collectionView.backgroundColor = .systemPurple
+        case 4:
+            collectionView.backgroundColor = .systemTeal
+        default:
+            break
+        }
+    }
 }
