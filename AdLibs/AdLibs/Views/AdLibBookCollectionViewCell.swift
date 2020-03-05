@@ -12,7 +12,7 @@ class AdLibBookCollectionViewCell: UICollectionViewCell {
     
     var adLibController = AdLibController()
     
-    var adlib: AdLib? {
+    var storyBody: StoryBody? {
         didSet {
             updateViews()
         }
@@ -21,7 +21,7 @@ class AdLibBookCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var adLibStoryTitleLabel: UILabel!
     
     func updateViews() {
-        guard let adlib = adlib else { return }
-        adLibStoryTitleLabel.text = adlib.title
+        guard let title = storyBody else { return }
+        adLibStoryTitleLabel.text = title.title
     }
 }

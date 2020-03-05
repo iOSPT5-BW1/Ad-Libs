@@ -74,6 +74,7 @@ class AdLibController {
     @discardableResult func createStory(title: String, body: String) -> StoryBody {
         let storysaved = StoryBody(filledStory: body, title: title)
         storyList.append(storysaved)
+        saveToPersistentStore()
         return storysaved
     }
     

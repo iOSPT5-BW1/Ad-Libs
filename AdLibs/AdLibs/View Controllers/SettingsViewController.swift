@@ -12,7 +12,7 @@ protocol ThemeSelectedDelegate {
     func themeChosen()
 }
 class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
-    var pickerData = ["Blue", "Dark", "Cyan", "Purple", "Teal"]
+    var pickerData = ["Blue", "Cyan", "Dark", "Gray", "Green","Light", "Orange", "Purple", "Teal", "Yellow"]
     
     @IBOutlet weak var themePicker: UIPickerView!
     @IBOutlet weak var story1Button: UIButton!
@@ -93,20 +93,30 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         UserDefaults.standard.set(Settings.shared.changeBackground, forKey: "themeSet")
         setTheme()
     }
-    
+    //   0       1        2       3       4       5        6        7         8       9
+    // "Blue", "Cyan", "Dark", "Gray", "Green", "Light", "Orange", "Purple", "Teal", "Yellow"
     func setTheme() {
         switch Settings.shared.changeBackground {
         case 0:
             view.backgroundColor = .blue
         case 1:
-            view.backgroundColor = .darkGray
-        case 2:
-           // view.backgroundColor = .systemGreen
             view.backgroundColor = UIColor(red: 129/255, green: 194/255, blue: 183/255, alpha: 1.0)
+        case 2:
+            view.backgroundColor = .darkGray
         case 3:
-            view.backgroundColor = .systemPurple
+            view.backgroundColor = .systemGray2
         case 4:
+            view.backgroundColor = .systemGreen
+        case 5:
+            view.backgroundColor = .lightGray
+        case 6:
+            view.backgroundColor = .systemOrange
+        case 7:
+            view.backgroundColor = .systemPurple
+        case 8:
             view.backgroundColor = .systemTeal
+        case 9:
+            view.backgroundColor = .yellow
         default:
             break
         }
@@ -117,15 +127,11 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     }
     
     @IBAction func storySelectButtonPressed(_ sender: UIButton) {
-        switch sender.tag {
-        case 0:
-            customizeButtons(sender: sender.tag)
-        case 1:
-            customizeButtons(sender: sender.tag)
-        case 2:
-            customizeButtons(sender: sender.tag)
-        default:
-            break
+        Settings.shared.storyChanged = true
+        if Settings.shared.storyChanged {
+        customizeButtons(sender: sender.tag)
+        } else if !Settings.shared.storyChanged {
+            customizeButtons(sender: 0)
         }
     }
 }
