@@ -28,7 +28,7 @@ class AdLibCreatorViewController: UIViewController {
     var story: Story?
     var body: StoryBody?
     var storySelected = ""
-    
+   // var adlibFound: StoryBody?
     var toStoryView = "SegueToStoryView"
     
     override func viewDidLoad() {
@@ -67,10 +67,11 @@ class AdLibCreatorViewController: UIViewController {
         case .story3:
             storySelected = story3
         }
+  
   return storySelected
     }
-
-    @IBAction func showStoryTapped(_ sender: UIButton) {
+        
+    private func setBody() {
         guard let noun = nounTextField.text,
             let verb = verbTextField.text,
             let pronoun = pronounTextField.text,
@@ -84,20 +85,20 @@ class AdLibCreatorViewController: UIViewController {
             !adverb.isEmpty,
             !color.isEmpty else { return }
         guard let adLibController = adLibController else { return }
-       words =  adLibController.createAdLibBody(noun: noun, pronoun: pronoun, verb: verb, adjective: adjective, adverb: adverb, color: color, story: Settings.shared.story.rawValue)
+        words =  adLibController.createAdLibBody(noun: noun, pronoun: pronoun, verb: verb, adjective: adjective, adverb: adverb, color: color, story: Settings.shared.story.rawValue)
         guard let words = words else { return }
-       
-        adLibController.sendStory(story: storySelector(adLib: words), body: body!)
-       // adLibController.createAdLibBody(noun: noun, pronoun: pronoun, verb: verb, adjective: adjective, adverb: adverb, color: color)
-      //  story = storySelector(adLib:  adLibController.createAdLibBody(noun: noun, pronoun: pronoun, verb: verb, adjective: adjective, adverb: adverb, color: color, story: Settings.shared.story.rawValue))
+        
+        let storyString = storySelector(adLib: words)
+        let story = StoryBody(filledStory: storyString)
+        self.body = story
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == toStoryView {
             let destination = segue.destination as! StoryViewController
+            setBody()
             destination.adLibController = adLibController
-            //destination.adLib = adLibController?.adLibs[0]
-            destination.story = story
+            destination.adlibFound = self.body
         }
     }
     

@@ -15,6 +15,7 @@ class StoryViewController: UIViewController {
     var adLib: AdLib?
     var story: Story?
     var adlibFound: StoryBody?
+
    
     @IBOutlet weak var adlibTitleField: UITextField!
     @IBOutlet weak var storyTextVew: UITextView!
@@ -26,13 +27,7 @@ class StoryViewController: UIViewController {
         storyTextVew.backgroundColor = UIColor(white: 1, alpha: 0.75)
         updateViews()
     }
-    // need to make a new create func to only save passed adlib and entered title
-//    @IBAction func saveButtonTapped(_ sender: UIButton) {
-//        guard adLib != nil else { return }
-//        adLibController?.createAdLibBody(noun: adLib?.noun, pronoun: <#String#>, verb: <#String#>, adjective: <#String#>, adverb: <#String#>, color: <#String#>, story: <#String#>)
-//    navigationController?.popViewController(animated: true)
-//    }
-    
+   
        override func viewWillAppear(_ animated: Bool) {
               super.viewWillAppear(true)
               setTheme()
@@ -59,5 +54,13 @@ class StoryViewController: UIViewController {
         default:
             break
         }
+    }
+    
+    @IBAction func saveButtonTapped(_ sender: Any) {
+        guard let title = adlibTitleField.text,
+            let body = storyTextVew.text,
+            !title.isEmpty,
+            !body.isEmpty else { return }
+        adLibController?.createStory(title: title, body: body)
     }
 }

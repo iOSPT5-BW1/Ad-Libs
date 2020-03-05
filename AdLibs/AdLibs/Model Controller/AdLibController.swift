@@ -13,7 +13,7 @@ class AdLibController {
      
     private(set) var adLibs: [AdLib] = []
     var enteredWords: [Words] = []
-    var storyList: [String] = []
+    var storyList: [StoryBody] = []
     
     private var persistentFileURL: URL? {
         // Singleton = single instance that can be used throughout the app
@@ -36,13 +36,6 @@ class AdLibController {
         saveToPersistentStore()
         return group
     }
-    
-//    @discardableResult func createAdLibBody(noun: String, pronoun: String, verb: String, adjective: String, adverb: String, color: String) -> AdLib {
-//        let adLib = AdLib(noun: noun, pronoun: pronoun, verb: verb, adjective: adjective, adverb: adverb, color: color)
-//        adLibs.append(adLib)
-//        saveToPersistentStore()
-//        return adLib
-//    }
     
     func list() -> String {
         var output = ""
@@ -78,6 +71,12 @@ class AdLibController {
         }
     }
     
+    @discardableResult func createStory(title: String, body: String) -> StoryBody {
+        let storysaved = StoryBody(filledStory: body, title: title)
+        storyList.append(storysaved)
+        return storysaved
+    }
+    
     func updateStory(adLib: AdLib, newStory: String) {
         guard let index = adLibs.firstIndex(of: adLib) else { return }
         var updateAdLib = adLib
@@ -85,11 +84,5 @@ class AdLibController {
         adLibs.remove(at: index)
         adLibs.insert(updateAdLib, at: index)
         saveToPersistentStore()
-    }
-    
-    func sendStory(story: String, body: StoryBody) {
-        guard let index = storyList.firstIndex(of: story) else { return }
-    
-        storyList[index] = story
     }
 }

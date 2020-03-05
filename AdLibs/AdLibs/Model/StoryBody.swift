@@ -11,8 +11,10 @@ import Foundation
 struct StoryBody: Equatable {
     
     var filledStory: String = ""
+    var title: String = ""
     
-    init(filledStory: String) {
+    init(filledStory: String, title: String = "") {
         self.filledStory = filledStory
+        self.title = title
     }
 }
