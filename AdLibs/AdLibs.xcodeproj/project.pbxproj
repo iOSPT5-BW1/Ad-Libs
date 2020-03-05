@@ -12,6 +12,9 @@
 		05AD2A1B24076E0C0051AC59 /* AdLib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AD2A1A24076E0C0051AC59 /* AdLib.swift */; };
 		05AD2A1D24076E2D0051AC59 /* AdLibController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AD2A1C24076E2D0051AC59 /* AdLibController.swift */; };
 		05AD2A1F24077BD80051AC59 /* StoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AD2A1E24077BD80051AC59 /* StoryViewController.swift */; };
+		381C8534240F42140056DF8A /* AdLibsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381C8533240F42140056DF8A /* AdLibsCollectionViewController.swift */; };
+		381C8536240F687A0056DF8A /* Words.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381C8535240F687A0056DF8A /* Words.swift */; };
+		381C8538240F98460056DF8A /* StoryBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381C8537240F98460056DF8A /* StoryBody.swift */; };
 		38AF8E862406FCC400608D01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AF8E852406FCC400608D01 /* AppDelegate.swift */; };
 		38AF8E882406FCC400608D01 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AF8E872406FCC400608D01 /* SceneDelegate.swift */; };
 		38AF8E8A2406FCC400608D01 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AF8E892406FCC400608D01 /* ViewController.swift */; };
@@ -31,6 +34,9 @@
 		05AD2A1A24076E0C0051AC59 /* AdLib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdLib.swift; sourceTree = "<group>"; };
 		05AD2A1C24076E2D0051AC59 /* AdLibController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdLibController.swift; sourceTree = "<group>"; };
 		05AD2A1E24077BD80051AC59 /* StoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewController.swift; sourceTree = "<group>"; };
+		381C8533240F42140056DF8A /* AdLibsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdLibsCollectionViewController.swift; sourceTree = "<group>"; };
+		381C8535240F687A0056DF8A /* Words.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Words.swift; sourceTree = "<group>"; };
+		381C8537240F98460056DF8A /* StoryBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryBody.swift; sourceTree = "<group>"; };
 		38AF8E822406FCC400608D01 /* AdLibs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdLibs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38AF8E852406FCC400608D01 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		38AF8E872406FCC400608D01 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +67,8 @@
 			isa = PBXGroup;
 			children = (
 				05AD2A1A24076E0C0051AC59 /* AdLib.swift */,
+				381C8535240F687A0056DF8A /* Words.swift */,
+				381C8537240F98460056DF8A /* StoryBody.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -83,6 +91,7 @@
 				05AD2A1E24077BD80051AC59 /* StoryViewController.swift */,
 				38AF8E9924070B6200608D01 /* SettingsViewController.swift */,
 				38AF8EA424086A0800608D01 /* AdLibBookCollectionViewController.swift */,
+				381C8533240F42140056DF8A /* AdLibsCollectionViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -225,13 +234,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				05AD2A1924076A880051AC59 /* StorySelector.swift in Sources */,
+				381C8534240F42140056DF8A /* AdLibsCollectionViewController.swift in Sources */,
 				05AD2A1B24076E0C0051AC59 /* AdLib.swift in Sources */,
 				38AF8E8A2406FCC400608D01 /* ViewController.swift in Sources */,
 				38AF8E862406FCC400608D01 /* AppDelegate.swift in Sources */,
 				05AD2A1D24076E2D0051AC59 /* AdLibController.swift in Sources */,
 				05AD2A17240767E30051AC59 /* AdLibCreatorViewController.swift in Sources */,
+				381C8538240F98460056DF8A /* StoryBody.swift in Sources */,
 				38AF8E882406FCC400608D01 /* SceneDelegate.swift in Sources */,
 				05AD2A1F24077BD80051AC59 /* StoryViewController.swift in Sources */,
+				381C8536240F687A0056DF8A /* Words.swift in Sources */,
 				38FC6BAF240B3CCF007DFE79 /* Settings.swift in Sources */,
 				38AF8EAD240AF22000608D01 /* InformationViewController.swift in Sources */,
 				38AF8EA524086A0800608D01 /* AdLibBookCollectionViewController.swift in Sources */,

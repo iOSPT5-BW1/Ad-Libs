@@ -14,7 +14,7 @@ class StoryViewController: UIViewController {
     var adLibController : AdLibController?
     var adLib: AdLib?
     var story: Story?
-    
+    var adlibFound: StoryBody?
    
     @IBOutlet weak var adlibTitleField: UITextField!
     @IBOutlet weak var storyTextVew: UITextView!
@@ -39,8 +39,8 @@ class StoryViewController: UIViewController {
           }
     
     func updateViews(){
-        guard let adLib = adLib else { return }
-        storyTextVew.text = adLib.story
+        guard let adLib = adlibFound else { return }
+        storyTextVew.text = adLib.filledStory
         setTheme()
     }
     
@@ -51,7 +51,6 @@ class StoryViewController: UIViewController {
         case 1:
             view.backgroundColor = .darkGray
         case 2:
-           // view.backgroundColor = .systemGreen
             view.backgroundColor = UIColor(red: 129/255, green: 194/255, blue: 183/255, alpha: 1.0)
         case 3:
             view.backgroundColor = .systemPurple

@@ -24,7 +24,6 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         themePicker.delegate = self
         themePicker.selectRow(Settings.shared.changeBackground, inComponent:
             0, animated: true)
-        //= Settings.shared.changeBackground
         themePicker.backgroundColor = UIColor(white: 1, alpha: 0.35)
         themePicker.layer.borderColor = UIColor.white.cgColor
         themePicker.layer.borderWidth = 2.5
@@ -42,7 +41,7 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             story1Button.layer.cornerRadius = 8.0
             story1Button.backgroundColor = UIColor.init(red: 255/255, green: 0/255, blue: 0/255, alpha: 0.55)
             story2Button.layer.borderColor = UIColor.clear.cgColor
-            story2Button.layer.borderColor = UIColor.clear.cgColor
+            story3Button.layer.borderColor = UIColor.clear.cgColor
             story2Button.backgroundColor = .clear
             story3Button.backgroundColor = .clear
             Settings.shared.story = .story1

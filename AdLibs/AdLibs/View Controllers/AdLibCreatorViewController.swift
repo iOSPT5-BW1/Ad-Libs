@@ -18,11 +18,15 @@ class AdLibCreatorViewController: UIViewController {
     @IBOutlet weak var adjectiveTextField: UITextField!
     @IBOutlet weak var adverbTextField: UITextField!
     @IBOutlet weak var colorTextView: UITextField!
+    @IBOutlet weak var switchLabel: UISwitch!
+    @IBOutlet weak var randomAdlibLabel: UILabel!
     
     var adLibController: AdLibController?
     
     var adLib: AdLib?
+    var words: Words?
     var story: Story?
+    var storySelected = ""
     
     var toStoryView = "SegueToStoryView"
     
@@ -35,6 +39,9 @@ class AdLibCreatorViewController: UIViewController {
         adjectiveTextField.backgroundColor = UIColor(white: 1, alpha: 0.75)
         adverbTextField.backgroundColor = UIColor(white: 1, alpha: 0.75)
         colorTextView.backgroundColor = UIColor(white: 1, alpha: 0.75)
+        randomAdlibLabel.isHidden = true
+        switchLabel.isHidden = true
+        
         updateViews()
     }
     
@@ -42,31 +49,26 @@ class AdLibCreatorViewController: UIViewController {
         setTheme()
     }
     
-    func storySelector(adLib: AdLib) {
-        
-        var adLib = adLib
+    func storySelector(adLib: Words) ->  String {
+    
+        let adLib = adLib
         
         let story1 = "   Allison takes her two \(adLib.noun)s for \(adLib.verb) around the block. They are large \(adLib.noun)s. She is a petite girl.  She is thrown about but still manages to keep them under control.\n   She sees her friend Billy across the street, \(adLib.verb)ing his three \(adLib.noun)s.  They are not large like hers.  They are \(adLib.adjective) but they have loud \(adLib.noun)s.\n   They \(adLib.adverb) pass each other and wave hello and go on their separate ways."
         let story2 =  "   You find yourself suddenly in the middle of an orchard of lemon \(adLib.noun)s.  \"Lemon \(adLib.noun)s?\" you ask yourself. \"What am I doing here?\"  It doesn’t matter. You are here. Let’s \(adLib.verb) with it.\nThe \(adLib.adjective) of lemons permeates the air. You are tempted to walk over to the nearest tree and pick a lemon. And walk over \(adLib.pronoun) do. You reach for a lemon on a low hanging branch. You are pricked by a thorn. Lesson learned.  If you want a lemon, it’s safer from the grocer."
         let story3 = "   I am still \(adLib.verb)ing how to code in Swift. A programming \(adLib.noun) used in iOS and tvOS apps by Apple. There is a lot to learn and understand. Even though it is suppose to be an \(adLib.adjective) language to \(adLib.verb) it can be daunting, but satisfying. There are times when \(adLib.verb)ing to code you can see \(adLib.color) in frustration.\n   To see your results come alive even on a simulator after a challenging process of \(adLib.adverb) working through a problem can be very exciting. The possibilities are far reaching and within \(adLib.pronoun) grasp!"
-       // let story3 = "   My house is not a large house. Neither is it a small house. My house is a comfortable house to me to live in. My house is blue with turquoise trim and is only a single story house.\nI have a fairly large backyard to play in and it is right behind a creek. I lose many balls into the creek and have to go and find them.  My dog tries to help me do so. He does not help very well. He gets distracted by noises and I have to find him more often than my balls."
         
-        switch story {
+       // var pickedStory = Settings.shared.story.rawValue
+        switch Settings.shared.story {
         case .story1:
-            adLib.story = story1
-            adLibController?.updateStory(adLib: adLib, newStory: adLib.story)
+            storySelected = story1
         case .story2:
-            adLib.story = story2
-            adLibController?.updateStory(adLib: adLib, newStory: adLib.story)
+            storySelected = story2
         case .story3:
-            adLib.story = story3
-            adLibController?.updateStory(adLib: adLib, newStory: adLib.story)
-        case .none:
-            adLib.story = story1
-            adLibController?.updateStory(adLib: adLib, newStory: adLib.story)
+            storySelected = story3
         }
+  return storySelected
     }
-    
+
     @IBAction func showStoryTapped(_ sender: UIButton) {
         guard let noun = nounTextField.text,
             let verb = verbTextField.text,
@@ -81,8 +83,12 @@ class AdLibCreatorViewController: UIViewController {
             !adverb.isEmpty,
             !color.isEmpty else { return }
         guard let adLibController = adLibController else { return }
-        adLibController.createAdLibBody(noun: noun, pronoun: pronoun, verb: verb, adjective: adjective, adverb: adverb, color: color)
-        storySelector(adLib: adLib!)
+       words =  adLibController.createAdLibBody(noun: noun, pronoun: pronoun, verb: verb, adjective: adjective, adverb: adverb, color: color, story: Settings.shared.story.rawValue)
+        guard let words = words else { return }
+       
+        adLibController.sendStory(story: storySelector(adLib: words))
+       // adLibController.createAdLibBody(noun: noun, pronoun: pronoun, verb: verb, adjective: adjective, adverb: adverb, color: color)
+      //  story = storySelector(adLib:  adLibController.createAdLibBody(noun: noun, pronoun: pronoun, verb: verb, adjective: adjective, adverb: adverb, color: color, story: Settings.shared.story.rawValue))
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -110,6 +116,9 @@ class AdLibCreatorViewController: UIViewController {
         default:
             break
         }
+    }
+    
+    @IBAction func gameSelectSwitched(_ sender: Any) {
     }
 }
 

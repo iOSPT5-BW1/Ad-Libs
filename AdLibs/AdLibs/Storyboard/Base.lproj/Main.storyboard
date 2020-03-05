@@ -13,11 +13,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="AdLibs" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="mfa-0t-RqR">
-                                <rect key="frame" x="12" y="495" width="390" height="109"/>
+                                <rect key="frame" x="12" y="539" width="390" height="109"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RO5-ET-F3F">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="37"/>
@@ -42,7 +42,7 @@
                                 </subviews>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wackylibsstartscreen" translatesAutoresizingMaskIntoConstraints="NO" id="l9e-eY-Ddn">
-                                <rect key="frame" x="25" y="50" width="364" height="395"/>
+                                <rect key="frame" x="25" y="94" width="364" height="395"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -117,6 +117,9 @@
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="lGn-bw-bFU">
                                         <rect key="frame" x="79.5" y="0.0" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="gameSelectSwitched:" destination="LrF-2V-Yax" eventType="valueChanged" id="44t-av-Jle"/>
+                                        </connections>
                                     </switch>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Random Ad-Lib" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jjp-X7-M9J">
                                         <rect key="frame" x="143.5" y="0.0" width="119.5" height="31"/>
@@ -128,8 +131,11 @@
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ybj-rZ-u3A">
                                 <rect key="frame" x="167.5" y="678" width="79" height="30"/>
-                                <state key="normal" title="Show Story"/>
+                                <state key="normal" title="Show Story">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
+                                    <action selector="showStoryTapped:" destination="LrF-2V-Yax" eventType="touchUpInside" id="oK7-pN-gyM"/>
                                     <segue destination="OLh-J4-u9J" kind="show" identifier="SegueToStoryView" id="yQD-Gp-Uh4"/>
                                 </connections>
                             </button>
@@ -153,6 +159,8 @@
                         <outlet property="colorTextView" destination="VxE-OD-Lp5" id="uch-15-HuR"/>
                         <outlet property="nounTextField" destination="skm-ss-xFU" id="now-Q9-IHe"/>
                         <outlet property="pronounTextField" destination="Pvy-TI-ifa" id="scW-3H-SKp"/>
+                        <outlet property="randomAdlibLabel" destination="Jjp-X7-M9J" id="dch-YR-KAR"/>
+                        <outlet property="switchLabel" destination="lGn-bw-bFU" id="ZBG-7S-lso"/>
                         <outlet property="verbTextField" destination="6P0-HR-TUf" id="tIL-b8-F9f"/>
                     </connections>
                 </viewController>
@@ -392,26 +400,40 @@
         <!--Ad-Libs Book-->
         <scene sceneID="cg0-pf-CBW">
             <objects>
-                <collectionViewController title="Ad-Libs Book" id="S14-AL-IL7" sceneMemberID="viewController">
+                <collectionViewController title="Ad-Libs Book" id="S14-AL-IL7" customClass="AdLibBookCollectionViewController" customModule="AdLibs" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="A6a-Vq-Ju0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dmS-gy-2Hd">
-                            <size key="itemSize" width="50" height="50"/>
+                            <size key="itemSize" width="114" height="106"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="wLV-VI-KF9">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AdlibCell" id="wLV-VI-KF9" customClass="AdLibBookCollectionViewCell" customModule="AdLibs" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="114" height="106"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="FIP-KG-AFJ">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="114" height="106"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qCP-rC-EEW">
+                                            <rect key="frame" x="36" y="43" width="42" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="qCP-rC-EEW" firstAttribute="centerX" secondItem="FIP-KG-AFJ" secondAttribute="centerX" id="nPp-uy-pP9"/>
+                                        <constraint firstItem="qCP-rC-EEW" firstAttribute="centerY" secondItem="FIP-KG-AFJ" secondAttribute="centerY" id="wKc-dR-F2x"/>
+                                    </constraints>
                                 </collectionViewCellContentView>
+                                <size key="customSize" width="114" height="106"/>
                                 <connections>
+                                    <outlet property="adLibStoryTitleLabel" destination="qCP-rC-EEW" id="AY6-GO-sCp"/>
                                     <segue destination="OLh-J4-u9J" kind="show" identifier="showAdlibSegue" id="NQ1-9i-nFm"/>
                                 </connections>
                             </collectionViewCell>
@@ -425,7 +447,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jAK-EE-200" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2796" y="1033"/>
+            <point key="canvasLocation" x="2795.6521739130435" y="1032.5892857142858"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ANR-C4-LZx">

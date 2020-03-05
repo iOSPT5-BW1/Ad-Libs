@@ -9,8 +9,11 @@
 import Foundation
 
 class AdLibController {
-    //stars can only be set by star controller
+   
+     
     private(set) var adLibs: [AdLib] = []
+    var enteredWords: [Words] = []
+    var storyList: [String] = []
     
     private var persistentFileURL: URL? {
         // Singleton = single instance that can be used throughout the app
@@ -26,12 +29,20 @@ class AdLibController {
         loadFromPersistentStore()
     }
     
-    @discardableResult func createAdLibBody(noun: String, pronoun: String, verb: String, adjective: String, adverb: String, color: String) -> AdLib {
-        let adLib = AdLib(noun: noun, pronoun: pronoun, verb: verb, adjective: adjective, adverb: adverb, color: color)
-        adLibs.append(adLib)
+    @discardableResult func createAdLibBody(noun: String, pronoun: String, verb: String, adjective: String, adverb: String, color: String, story: String) -> Words {
+        let group = Words(noun: noun, pronoun: pronoun, verb: verb, adjective: adjective, adverb: adverb, color: color, story: story)
+        enteredWords.removeAll()
+        enteredWords.append(group)
         saveToPersistentStore()
-        return adLib
+        return group
     }
+    
+//    @discardableResult func createAdLibBody(noun: String, pronoun: String, verb: String, adjective: String, adverb: String, color: String) -> AdLib {
+//        let adLib = AdLib(noun: noun, pronoun: pronoun, verb: verb, adjective: adjective, adverb: adverb, color: color)
+//        adLibs.append(adLib)
+//        saveToPersistentStore()
+//        return adLib
+//    }
     
     func list() -> String {
         var output = ""
@@ -68,11 +79,17 @@ class AdLibController {
     }
     
     func updateStory(adLib: AdLib, newStory: String) {
-           guard let index = adLibs.firstIndex(of: adLib) else { return }
-           var updateAdLib = adLib
-           updateAdLib.title = newStory
-           adLibs.remove(at: index)
-           adLibs.insert(updateAdLib, at: index)
-           saveToPersistentStore()
-       }
+        guard let index = adLibs.firstIndex(of: adLib) else { return }
+        var updateAdLib = adLib
+        updateAdLib.title = newStory
+        adLibs.remove(at: index)
+        adLibs.insert(updateAdLib, at: index)
+        saveToPersistentStore()
+    }
+    
+    func sendStory(story: String) {
+        guard let index = storyList.firstIndex(of: story) else { return }
+        
+        storyList[index] = story
+    }
 }
