@@ -12,4 +12,7 @@ struct StoryBody: Equatable {
     
     var filledStory: String = ""
     
+    init(filledStory: String) {
+        self.filledStory = filledStory
+    }
 }

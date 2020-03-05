@@ -26,10 +26,10 @@ class StoryViewController: UIViewController {
         storyTextVew.backgroundColor = UIColor(white: 1, alpha: 0.75)
         updateViews()
     }
-    
+    // need to make a new create func to only save passed adlib and entered title
 //    @IBAction func saveButtonTapped(_ sender: UIButton) {
 //        guard adLib != nil else { return }
-//        adLibController?.createAdLibBody(adLib: adLib!)
+//        adLibController?.createAdLibBody(noun: adLib?.noun, pronoun: <#String#>, verb: <#String#>, adjective: <#String#>, adverb: <#String#>, color: <#String#>, story: <#String#>)
 //    navigationController?.popViewController(animated: true)
 //    }
     

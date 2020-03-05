@@ -87,9 +87,9 @@ class AdLibController {
         saveToPersistentStore()
     }
     
-    func sendStory(story: String) {
+    func sendStory(story: String, body: StoryBody) {
         guard let index = storyList.firstIndex(of: story) else { return }
-        
+    
         storyList[index] = story
     }
 }

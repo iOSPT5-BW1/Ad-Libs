@@ -26,6 +26,7 @@ class AdLibCreatorViewController: UIViewController {
     var adLib: AdLib?
     var words: Words?
     var story: Story?
+    var body: StoryBody?
     var storySelected = ""
     
     var toStoryView = "SegueToStoryView"
@@ -86,7 +87,7 @@ class AdLibCreatorViewController: UIViewController {
        words =  adLibController.createAdLibBody(noun: noun, pronoun: pronoun, verb: verb, adjective: adjective, adverb: adverb, color: color, story: Settings.shared.story.rawValue)
         guard let words = words else { return }
        
-        adLibController.sendStory(story: storySelector(adLib: words))
+        adLibController.sendStory(story: storySelector(adLib: words), body: body!)
        // adLibController.createAdLibBody(noun: noun, pronoun: pronoun, verb: verb, adjective: adjective, adverb: adverb, color: color)
       //  story = storySelector(adLib:  adLibController.createAdLibBody(noun: noun, pronoun: pronoun, verb: verb, adjective: adjective, adverb: adverb, color: color, story: Settings.shared.story.rawValue))
     }
@@ -95,7 +96,7 @@ class AdLibCreatorViewController: UIViewController {
         if segue.identifier == toStoryView {
             let destination = segue.destination as! StoryViewController
             destination.adLibController = adLibController
-            destination.adLib = adLibController?.adLibs[0]
+            //destination.adLib = adLibController?.adLibs[0]
             destination.story = story
         }
     }
