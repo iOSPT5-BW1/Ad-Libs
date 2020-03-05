@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+private let collectionViewIdentifier = "AdLibListCollectionSegue"
    var adlibcontroller = AdLibController()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +26,9 @@ class ViewController: UIViewController {
         if segue.identifier == "StartAdLibSegue" {
             let destination = segue.destination as! AdLibCreatorViewController
             destination.adLibController = adlibcontroller
+        }
+        if segue.identifier == collectionViewIdentifier {
+            
         }
     }
     
