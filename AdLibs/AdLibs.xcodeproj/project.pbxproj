@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0566EDE52411FBC7007EEBBC /* StoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0566EDE42411FBC7007EEBBC /* StoryTableViewCell.swift */; };
+		0566EDE72411FBDF007EEBBC /* StoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0566EDE62411FBDF007EEBBC /* StoryTableViewController.swift */; };
 		05AD2A17240767E30051AC59 /* AdLibCreatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AD2A16240767E30051AC59 /* AdLibCreatorViewController.swift */; };
 		05AD2A1924076A880051AC59 /* StorySelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AD2A1824076A880051AC59 /* StorySelector.swift */; };
 		05AD2A1B24076E0C0051AC59 /* AdLib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AD2A1A24076E0C0051AC59 /* AdLib.swift */; };
@@ -21,13 +23,13 @@
 		38AF8E8F2406FCC600608D01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38AF8E8E2406FCC600608D01 /* Assets.xcassets */; };
 		38AF8E922406FCC600608D01 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38AF8E902406FCC600608D01 /* LaunchScreen.storyboard */; };
 		38AF8E9A24070B6200608D01 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AF8E9924070B6200608D01 /* SettingsViewController.swift */; };
-		38AF8EA524086A0800608D01 /* AdLibBookCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AF8EA424086A0800608D01 /* AdLibBookCollectionViewController.swift */; };
-		38AF8EA724086A2400608D01 /* AdLibBookCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AF8EA624086A2400608D01 /* AdLibBookCollectionViewCell.swift */; };
 		38AF8EAD240AF22000608D01 /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AF8EAC240AF22000608D01 /* InformationViewController.swift */; };
 		38FC6BAF240B3CCF007DFE79 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FC6BAE240B3CCF007DFE79 /* Settings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0566EDE42411FBC7007EEBBC /* StoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryTableViewCell.swift; sourceTree = "<group>"; };
+		0566EDE62411FBDF007EEBBC /* StoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryTableViewController.swift; sourceTree = "<group>"; };
 		05AD2A16240767E30051AC59 /* AdLibCreatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdLibCreatorViewController.swift; sourceTree = "<group>"; };
 		05AD2A1824076A880051AC59 /* StorySelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorySelector.swift; sourceTree = "<group>"; };
 		05AD2A1A24076E0C0051AC59 /* AdLib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdLib.swift; sourceTree = "<group>"; };
@@ -44,8 +46,6 @@
 		38AF8E912406FCC600608D01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		38AF8E932406FCC600608D01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		38AF8E9924070B6200608D01 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		38AF8EA424086A0800608D01 /* AdLibBookCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdLibBookCollectionViewController.swift; sourceTree = "<group>"; };
-		38AF8EA624086A2400608D01 /* AdLibBookCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdLibBookCollectionViewCell.swift; sourceTree = "<group>"; };
 		38AF8EAC240AF22000608D01 /* InformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationViewController.swift; sourceTree = "<group>"; };
 		38FC6BAE240B3CCF007DFE79 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -88,7 +88,7 @@
 				38AF8EAC240AF22000608D01 /* InformationViewController.swift */,
 				05AD2A1E24077BD80051AC59 /* StoryViewController.swift */,
 				38AF8E9924070B6200608D01 /* SettingsViewController.swift */,
-				38AF8EA424086A0800608D01 /* AdLibBookCollectionViewController.swift */,
+				0566EDE62411FBDF007EEBBC /* StoryTableViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -96,7 +96,7 @@
 		05AD2A15240767160051AC59 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				38AF8EA624086A2400608D01 /* AdLibBookCollectionViewCell.swift */,
+				0566EDE42411FBC7007EEBBC /* StoryTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -232,18 +232,18 @@
 			files = (
 				05AD2A1924076A880051AC59 /* StorySelector.swift in Sources */,
 				05AD2A1B24076E0C0051AC59 /* AdLib.swift in Sources */,
+				0566EDE72411FBDF007EEBBC /* StoryTableViewController.swift in Sources */,
 				38AF8E8A2406FCC400608D01 /* ViewController.swift in Sources */,
 				38AF8E862406FCC400608D01 /* AppDelegate.swift in Sources */,
 				05AD2A1D24076E2D0051AC59 /* AdLibController.swift in Sources */,
 				05AD2A17240767E30051AC59 /* AdLibCreatorViewController.swift in Sources */,
 				381C8538240F98460056DF8A /* StoryBody.swift in Sources */,
+				0566EDE52411FBC7007EEBBC /* StoryTableViewCell.swift in Sources */,
 				38AF8E882406FCC400608D01 /* SceneDelegate.swift in Sources */,
 				05AD2A1F24077BD80051AC59 /* StoryViewController.swift in Sources */,
 				381C8536240F687A0056DF8A /* Words.swift in Sources */,
 				38FC6BAF240B3CCF007DFE79 /* Settings.swift in Sources */,
 				38AF8EAD240AF22000608D01 /* InformationViewController.swift in Sources */,
-				38AF8EA524086A0800608D01 /* AdLibBookCollectionViewController.swift in Sources */,
-				38AF8EA724086A2400608D01 /* AdLibBookCollectionViewCell.swift in Sources */,
 				38AF8E9A24070B6200608D01 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
