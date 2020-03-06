@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  WackyAdLibsViewController.swift
 //  AdLibs
 //
 //  Created by David Williams on 2/26/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class WackyAdLibsViewController: UIViewController {
 private let collectionViewIdentifier = "AdLibListCollectionSegue"
    var adlibcontroller = AdLibController()
     override func viewDidLoad() {
@@ -56,10 +56,9 @@ private let collectionViewIdentifier = "AdLibListCollectionSegue"
             break
         }
     }
-    
 }
 
-extension ViewController: ThemeSelectedDelegate {
+extension WackyAdLibsViewController: ThemeSelectedDelegate {
     func themeChosen() {
         setTheme()
     }

@@ -12,17 +12,16 @@ class StoryViewController: UIViewController {
     // MARK: - Properties and Outlets
     
     var adLibController : AdLibController?
-    var adLib: AdLib?
-    var adlibFound: StoryBody?
+    var storyFound: Story?
     var storyState: StoryState?
     
-    @IBOutlet weak var adlibTitleField: UITextField!
+    @IBOutlet weak var storyTitleField: UITextField!
     @IBOutlet weak var storyTextVew: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        adlibTitleField.backgroundColor = UIColor(white: 1, alpha: 0.45)
+        storyTitleField.backgroundColor = UIColor(white: 1, alpha: 0.45)
         storyTextVew.backgroundColor = UIColor(white: 1, alpha: 0.75)
         updateViews()
     }
@@ -33,12 +32,12 @@ class StoryViewController: UIViewController {
     }
     
     func updateViews(){
-        guard let adLibFound = adlibFound else { return }
-        if adLibFound.title != "" {
-            adlibTitleField.text = adLibFound.title
-            storyTextVew.text = adLibFound.filledStory
+        guard let storyFound = storyFound else { return }
+        if storyFound.title != "" {
+            storyTitleField.text = storyFound.title
+            storyTextVew.text = storyFound.body
         } else {
-            storyTextVew.text = adLibFound.filledStory
+            storyTextVew.text = storyFound.body
             setTheme()
         }
     }
@@ -72,8 +71,8 @@ class StoryViewController: UIViewController {
     
     @IBAction func saveButtonTapped(_ sender: Any) {
         guard let storyState = storyState,
-            let adlibFound = adlibFound,
-            let title = adlibTitleField.text,
+            let storyFound = storyFound,
+            let title = storyTitleField.text,
             let body = storyTextVew.text,
             !title.isEmpty,
             !body.isEmpty else { return }
@@ -81,10 +80,8 @@ class StoryViewController: UIViewController {
             adLibController?.createStory(title: title, body: body)
             navigationController?.popToRootViewController(animated: true)
         } else {
-            adLibController?.updateStory(newTitle: title, newBody: body, oldStory: adlibFound)
+            adLibController?.updateStory(newTitle: title, newBody: body, oldStory: storyFound)
             navigationController?.popViewController(animated: true)
         }
-        
-        
     }
 }

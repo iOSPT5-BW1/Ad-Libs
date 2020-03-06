@@ -15,15 +15,13 @@ struct Words {
     var adjective: String
     var adverb: String
     var color: String
-    var story: String
     
-    init(noun: String, pronoun: String, verb: String, adjective: String, adverb: String, color: String, story: String = "" ) {
+    init(noun: String, pronoun: String, verb: String, adjective: String, adverb: String, color: String) {
         self.noun = noun
         self.pronoun = pronoun
         self.verb = verb
         self.adjective = adjective
         self.adverb = adverb
         self.color = color
-        self.story = story
     }
 }

@@ -12,18 +12,18 @@ class StoryTableViewCell: UITableViewCell {
     
     var adLibController = AdLibController()
     
-    var storyBody: StoryBody? {
+    var story: Story? {
         didSet {
             updateViews()
             setTheme()
         }
     }
     
-    @IBOutlet weak var adLibStoryTitleLabel: UILabel!
+    @IBOutlet weak var storyTitleLabel: UILabel!
     
     func updateViews() {
-        guard let storyBody = storyBody else { return }
-        adLibStoryTitleLabel.text = storyBody.title
+        guard let story = story else { return }
+        storyTitleLabel.text = story.title
     }
     
     func setTheme() {
