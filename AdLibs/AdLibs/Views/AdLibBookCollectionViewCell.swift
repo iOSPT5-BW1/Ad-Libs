@@ -10,5 +10,18 @@ import UIKit
 
 class AdLibBookCollectionViewCell: UICollectionViewCell {
     
+    var adLibController = AdLibController()
     
+    var storyBody: StoryBody? {
+        didSet {
+            updateViews()
+        }
+    }
+    
+    @IBOutlet weak var adLibStoryTitleLabel: UILabel!
+    
+    func updateViews() {
+        guard let storyBody = storyBody else { return }
+        adLibStoryTitleLabel.text = storyBody.title
+    }
 }

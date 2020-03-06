@@ -1,15 +1,14 @@
 //
-//  AdLib.swift
+//  Words.swift
 //  AdLibs
 //
-//  Created by Marc Jacques on 2/26/20.
+//  Created by David Williams on 3/3/20.
 //  Copyright © 2020 david williams. All rights reserved.
 //
 
 import Foundation
 
-struct AdLib: Codable, Equatable {
-    var title: String
+struct Words {
     var noun: String
     var pronoun: String
     var verb: String
@@ -18,8 +17,7 @@ struct AdLib: Codable, Equatable {
     var color: String
     var story: String
     
-    init(title: String = "", noun: String, pronoun: String, verb: String, adjective: String, adverb: String, color: String, story: String = "story1") {
-        self.title = title
+    init(noun: String, pronoun: String, verb: String, adjective: String, adverb: String, color: String, story: String = "" ) {
         self.noun = noun
         self.pronoun = pronoun
         self.verb = verb

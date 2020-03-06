@@ -8,8 +8,8 @@
 
 import Foundation
 
-enum Story {
-    case story1
-    case story2
-    case story3
+enum Story: String {
+    case story1 = "story1"
+    case story2 = "story2"
+    case story3 = "story3"
 }

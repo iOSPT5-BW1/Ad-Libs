@@ -9,8 +9,11 @@
 import Foundation
 
 class AdLibController {
-    //stars can only be set by star controller
+   
+     
     private(set) var adLibs: [AdLib] = []
+    var enteredWords: [Words] = []
+    var storyList: [StoryBody] = []
     
     private var persistentFileURL: URL? {
         // Singleton = single instance that can be used throughout the app
@@ -26,11 +29,11 @@ class AdLibController {
         loadFromPersistentStore()
     }
     
-    @discardableResult func createAdLibBody(noun: String, pronoun: String, verb: String, adjective: String, adverb: String, color: String) -> AdLib {
-        let adLib = AdLib(noun: noun, pronoun: pronoun, verb: verb, adjective: adjective, adverb: adverb, color: color)
-        adLibs.append(adLib)
-        saveToPersistentStore()
-        return adLib
+    @discardableResult func createAdLibBody(noun: String, pronoun: String, verb: String, adjective: String, adverb: String, color: String, story: String) -> Words {
+        let group = Words(noun: noun, pronoun: pronoun, verb: verb, adjective: adjective, adverb: adverb, color: color, story: story)
+        enteredWords.removeAll()
+        enteredWords.append(group)
+        return group
     }
     
     func list() -> String {
@@ -67,12 +70,19 @@ class AdLibController {
         }
     }
     
+    @discardableResult func createStory(title: String, body: String) -> StoryBody {
+        let storysaved = StoryBody(filledStory: body, title: title)
+        storyList.append(storysaved)
+        saveToPersistentStore()
+        return storysaved
+    }
+    
     func updateStory(adLib: AdLib, newStory: String) {
-           guard let index = adLibs.firstIndex(of: adLib) else { return }
-           var updateAdLib = adLib
-           updateAdLib.title = newStory
-           adLibs.remove(at: index)
-           adLibs.insert(updateAdLib, at: index)
-           saveToPersistentStore()
-       }
+        guard let index = adLibs.firstIndex(of: adLib) else { return }
+        var updateAdLib = adLib
+        updateAdLib.title = newStory
+        adLibs.remove(at: index)
+        adLibs.insert(updateAdLib, at: index)
+        saveToPersistentStore()
+    }
 }
