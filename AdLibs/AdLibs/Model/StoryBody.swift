@@ -8,6 +8,11 @@
 
 import Foundation
 
+enum StoryState {
+    case newStory
+    case updateStory
+}
+
 struct StoryBody: Codable, Equatable {
     
     var filledStory: String = ""
