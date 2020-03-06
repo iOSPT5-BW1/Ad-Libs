@@ -12,7 +12,7 @@ class StoryTableViewController: UITableViewController {
     //  MARK: - Properties and Outlets
     
     var adLibController = AdLibController()
-    
+    var storyState = StoryState.updateStory
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,6 +88,7 @@ class StoryTableViewController: UITableViewController {
             showStoryVC.adLibController = adLibController
             let story = adLibController.storyList[indexPath.row]
             showStoryVC.adlibFound = story
+            showStoryVC.storyState = storyState
         }
     }
 }
