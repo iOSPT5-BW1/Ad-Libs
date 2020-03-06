@@ -41,12 +41,8 @@ class AdLibCreatorViewController: UIViewController {
         colorTextField.backgroundColor = UIColor(white: 1, alpha: 0.75)
         randomAdlibLabel.isHidden = true
         switchLabel.isHidden = true
-        nounTextField.delegate = self
-        verbTextField.delegate = self
-        pronounTextField.delegate = self
-        adjectiveTextField.delegate = self
-        adverbTextField.delegate = self
-        colorTextField.delegate = self
+        
+        [nounTextField, verbTextField, pronounTextField, adjectiveTextField, adverbTextField, colorTextField].forEach { $0.delegate = self}
 
         updateViews()
     }
