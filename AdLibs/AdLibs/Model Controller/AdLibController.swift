@@ -78,8 +78,7 @@ class AdLibController {
     
     func updateStory(newTitle: String, newBody: String, oldStory: StoryBody) {
         guard let index = storyList.firstIndex(of: oldStory) else { return }
-        var updatedStory = StoryBody(filledStory: newBody, title: newTitle)
-        
+        let updatedStory = StoryBody(filledStory: newBody, title: newTitle)
         storyList.remove(at: index)
         storyList.insert(updatedStory, at: index)
         saveToPersistentStore()

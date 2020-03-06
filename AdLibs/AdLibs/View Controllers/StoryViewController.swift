@@ -33,12 +33,12 @@ class StoryViewController: UIViewController {
     }
     
     func updateViews(){
-        guard let adLib = adlibFound else { return }
-        if adLib.title != "" {
-            adlibTitleField.text = adLib.title
-            storyTextVew.text = adLib.filledStory
+        guard let adLibFound = adlibFound else { return }
+        if adLibFound.title != "" {
+            adlibTitleField.text = adLibFound.title
+            storyTextVew.text = adLibFound.filledStory
         } else {
-            storyTextVew.text = adLib.filledStory
+            storyTextVew.text = adLibFound.filledStory
             setTheme()
         }
     }
@@ -76,10 +76,10 @@ class StoryViewController: UIViewController {
             let body = storyTextVew.text,
             !title.isEmpty,
             !body.isEmpty else { return }
-        if adlibFound == adlibFound || adLib != adLib {
+        if adlibFound == adlibFound {
             adLibController?.updateStory(newTitle: title, newBody: body, oldStory: adlibFound)
         } else {
-            adLibController?.createStory(title: title, body: body)
+        adLibController?.createStory(title: title, body: body)
         }
         navigationController?.popToRootViewController(animated: true)
     }
