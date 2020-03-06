@@ -65,11 +65,10 @@ class AdLibCreatorViewController: UIViewController {
             storySelected = story2
         case .story3:
             storySelected = story3
-        }
-  
-  return storySelected
+        }        
+        return storySelected
     }
-        
+    
     private func setBody() {
         guard let noun = nounTextField.text,
             let verb = verbTextField.text,

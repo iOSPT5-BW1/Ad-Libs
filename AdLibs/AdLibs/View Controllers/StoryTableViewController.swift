@@ -85,13 +85,9 @@ class StoryTableViewController: UITableViewController {
         if segue.identifier == "EditStorySegue" {
             guard let showStoryVC = segue.destination as? StoryViewController,
                 let indexPath = tableView.indexPathForSelectedRow else { return }
-            
             showStoryVC.adLibController = adLibController
             let story = adLibController.storyList[indexPath.row]
             showStoryVC.adlibFound = story
-
         }
-      
     }
-
 }
