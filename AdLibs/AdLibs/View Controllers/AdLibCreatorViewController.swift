@@ -43,7 +43,6 @@ class AdLibCreatorViewController: UIViewController {
         switchLabel.isHidden = true
         
         [nounTextField, verbTextField, pronounTextField, adjectiveTextField, adverbTextField, colorTextField].forEach { $0.delegate = self}
-
         updateViews()
     }
     
