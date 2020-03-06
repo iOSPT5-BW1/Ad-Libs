@@ -9,13 +9,13 @@
 import UIKit
 
 class StoryViewController: UIViewController {
-// MARK: - Properties and Outlets
+    // MARK: - Properties and Outlets
     
     var adLibController : AdLibController?
     var adLib: AdLib?
     var adlibFound: StoryBody?
-
-   
+    
+    
     @IBOutlet weak var adlibTitleField: UITextField!
     @IBOutlet weak var storyTextVew: UITextView!
     
@@ -26,16 +26,21 @@ class StoryViewController: UIViewController {
         storyTextVew.backgroundColor = UIColor(white: 1, alpha: 0.75)
         updateViews()
     }
-   
-       override func viewWillAppear(_ animated: Bool) {
-              super.viewWillAppear(true)
-              setTheme()
-          }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        setTheme()
+    }
     
     func updateViews(){
         guard let adLib = adlibFound else { return }
-        storyTextVew.text = adLib.filledStory
-        setTheme()
+        if adLib.title != "" {
+            adlibTitleField.text = adLib.title
+            storyTextVew.text = adLib.filledStory
+        } else {
+            storyTextVew.text = adLib.filledStory
+            setTheme()
+        }
     }
     
     func setTheme() {
@@ -66,14 +71,16 @@ class StoryViewController: UIViewController {
     }
     
     @IBAction func saveButtonTapped(_ sender: Any) {
-//        if adlibTitleField.text == "" {
-//            print("enter a title!")
-//        }
+        guard let adlibFound = adlibFound else { return }
         guard let title = adlibTitleField.text,
             let body = storyTextVew.text,
             !title.isEmpty,
             !body.isEmpty else { return }
-        adLibController?.createStory(title: title, body: body)
+        if adlibFound == adlibFound || adLib != adLib {
+            adLibController?.updateStory(newTitle: title, newBody: body, oldStory: adlibFound)
+        } else {
+            adLibController?.createStory(title: title, body: body)
+        }
         navigationController?.popToRootViewController(animated: true)
     }
 }

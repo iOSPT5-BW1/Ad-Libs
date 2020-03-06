@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct StoryBody: Equatable {
+struct StoryBody: Codable, Equatable {
     
     var filledStory: String = ""
     var title: String = ""

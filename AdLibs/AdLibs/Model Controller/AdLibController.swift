@@ -36,25 +36,24 @@ class AdLibController {
         return group
     }
     
-    func list() -> String {
-        var output = ""
-        for adlib in adLibs {
-            output += "\(adlib.title) "
-        }
-        return output
-    }
-    
     //Save and Load methods
     
     func saveToPersistentStore() {
         guard let url = persistentFileURL else { return }
         do {
             let encoder = PropertyListEncoder()//we need a plist encoder = property list
-            let data = try encoder.encode(adLibs) //this is how we actually encode our model object
+            let data = try encoder.encode(storyList) //this is how we actually encode our model object
             try data.write(to: url) //now write it to the url we recently created. the url is the adLibs.plist that we created
         } catch {
             print("Error saving the adLibs data: \(error)")
         }
+    }
+ 
+    
+    func deleteAdlib(which story: StoryBody) {
+        guard let index = storyList.firstIndex(of: story) else { return }
+        storyList.remove(at: index)
+        saveToPersistentStore()
     }
     
     func loadFromPersistentStore() {
@@ -64,9 +63,9 @@ class AdLibController {
         do {
             let data = try Data(contentsOf: url)
             let decoder = PropertyListDecoder()
-            adLibs = try decoder.decode([AdLib].self, from: data)
+            storyList = try decoder.decode([StoryBody].self, from: data)
         } catch {
-            print("Error loading adLibs data: \(error)")
+            print("Error loading storyList data: \(error)")
         }
     }
     
@@ -77,12 +76,12 @@ class AdLibController {
         return storysaved
     }
     
-    func updateStory(adLib: AdLib, newStory: String) {
-        guard let index = adLibs.firstIndex(of: adLib) else { return }
-        var updateAdLib = adLib
-        updateAdLib.title = newStory
-        adLibs.remove(at: index)
-        adLibs.insert(updateAdLib, at: index)
+    func updateStory(newTitle: String, newBody: String, oldStory: StoryBody) {
+        guard let index = storyList.firstIndex(of: oldStory) else { return }
+        var updatedStory = StoryBody(filledStory: newBody, title: newTitle)
+        
+        storyList.remove(at: index)
+        storyList.insert(updatedStory, at: index)
         saveToPersistentStore()
     }
 }

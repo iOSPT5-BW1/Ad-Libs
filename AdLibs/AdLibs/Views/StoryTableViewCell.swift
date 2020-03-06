@@ -1,14 +1,14 @@
 //
-//  AdLibBookCollectionViewCell.swift
+//  StoryTableViewCell.swift
 //  AdLibs
 //
-//  Created by David Williams on 2/27/20.
+//  Created by Marc Jacques on 3/5/20.
 //  Copyright © 2020 david williams. All rights reserved.
 //
 
 import UIKit
 
-class AdLibBookCollectionViewCell: UICollectionViewCell {
+class StoryTableViewCell: UITableViewCell {
     
     var adLibController = AdLibController()
     
@@ -19,9 +19,11 @@ class AdLibBookCollectionViewCell: UICollectionViewCell {
     }
     
     @IBOutlet weak var adLibStoryTitleLabel: UILabel!
-    
+
     func updateViews() {
         guard let storyBody = storyBody else { return }
-        adLibStoryTitleLabel.text = storyBody.title
+            adLibStoryTitleLabel.text = storyBody.title
+        }
     }
-}
+
+
