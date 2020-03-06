@@ -79,10 +79,12 @@ class StoryViewController: UIViewController {
             !body.isEmpty else { return }
         if storyState == .newStory {
             adLibController?.createStory(title: title, body: body)
+            navigationController?.popToRootViewController(animated: true)
         } else {
             adLibController?.updateStory(newTitle: title, newBody: body, oldStory: adlibFound)
+            navigationController?.popViewController(animated: true)
         }
-        navigationController?.popViewController(animated: true)
+        
         
     }
 }
