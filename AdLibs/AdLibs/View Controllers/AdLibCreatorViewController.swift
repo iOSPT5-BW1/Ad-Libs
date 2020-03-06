@@ -24,14 +24,11 @@ class AdLibCreatorViewController: UIViewController {
     
     var adLibController: AdLibController?
     
-    var adLib: AdLib?
+    //var adLib: AdLib?
     var words: Words?
     var story: Story?
-    var body: StoryBody?
     var storySelected = ""
     var storyState: StoryState = .newStory
-   
-//    var toStoryView = "SegueToStoryView"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,8 +50,6 @@ class AdLibCreatorViewController: UIViewController {
     }
     
     func storySelector(adLib: Words) ->  String {
-    
-        let adLib = adLib
         
         let story1 = "   Allison takes her two \(adLib.noun)s for \(adLib.verb) around the block. They are large \(adLib.noun)s. She is a petite girl.  She is thrown about but still manages to keep them under control.\n   She sees her friend Billy across the street, \(adLib.verb)ing his three \(adLib.noun)s.  They are not large like hers.  They are \(adLib.adjective) but they have loud \(adLib.noun)s.\n   They \(adLib.adverb) pass each other and wave hello and go on their separate ways."
         let story2 =  "   You find yourself suddenly in the middle of an orchard of lemon \(adLib.noun)s.  \"Lemon \(adLib.noun)s?\" you ask yourself. \"What am I doing here?\"  It doesn’t matter. You are here. Let’s \(adLib.verb) with it.\n   The \(adLib.adjective) of lemons permeates the air. You are tempted to walk over to the nearest tree and pick a lemon. And walk over \(adLib.pronoun) do. You reach for a lemon on a low hanging branch. You are pricked by a thorn. Lesson learned.  If you want a lemon, it’s safer from the grocer."
@@ -84,13 +79,12 @@ class AdLibCreatorViewController: UIViewController {
             !adjective.isEmpty,
             !adverb.isEmpty,
             !color.isEmpty else { return }
-        guard let adLibController = adLibController else { return }
-        words =  adLibController.createAdLibBody(noun: noun, pronoun: pronoun, verb: verb, adjective: adjective, adverb: adverb, color: color, story: Settings.shared.story.rawValue)
+        words = Words(noun: noun, pronoun: pronoun, verb: verb, adjective: adjective, adverb: adverb, color: color)
         guard let words = words else { return }
         
         let storyString = "\n\n\n\n\n" + storySelector(adLib: words)
-        let story = StoryBody(filledStory: storyString)
-        self.body = story
+        let storyBody = Story(body: storyString)
+        self.story = storyBody
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -99,7 +93,7 @@ class AdLibCreatorViewController: UIViewController {
             setBody()
             destination.adLibController = adLibController
             destination.storyState = storyState
-            destination.adlibFound = self.body
+            destination.storyFound = self.story
         }
     }
     
