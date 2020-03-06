@@ -48,14 +48,13 @@ class AdLibController {
             print("Error saving the adLibs data: \(error)")
         }
     }
+ 
     
-//    func saveStorytoPersistentStore() {
-//        guard let url = persistentFileURL else { return }
-//        do {
-//            let encoder = PropertyListEncoder()
-//            let storyData = try encoder.encode([storyList])
-//        }
-//    }
+    func deleteAdlib(which story: StoryBody) {
+        guard let index = storyList.firstIndex(of: story) else { return }
+        storyList.remove(at: index)
+        saveToPersistentStore()
+    }
     
     func loadFromPersistentStore() {
         let fileManager = FileManager.default
@@ -77,12 +76,12 @@ class AdLibController {
         return storysaved
     }
     
-    func updateStory(adLib: AdLib, newStory: String) {
-        guard let index = adLibs.firstIndex(of: adLib) else { return }
-        var updateAdLib = adLib
-        updateAdLib.title = newStory
-        adLibs.remove(at: index)
-        adLibs.insert(updateAdLib, at: index)
+    func updateStory(newTitle: String, newBody: String, oldStory: StoryBody) {
+        guard let index = storyList.firstIndex(of: oldStory) else { return }
+        var updatedStory = StoryBody(filledStory: newBody, title: newTitle)
+        
+        storyList.remove(at: index)
+        storyList.insert(updatedStory, at: index)
         saveToPersistentStore()
     }
 }
