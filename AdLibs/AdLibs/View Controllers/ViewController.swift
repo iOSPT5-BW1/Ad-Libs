@@ -39,7 +39,7 @@ private let collectionViewIdentifier = "AdLibListCollectionSegue"
         case 2:
             view.backgroundColor = .darkGray
         case 3:
-            view.backgroundColor = .systemGray2
+            view.backgroundColor = .systemGray3
         case 4:
             view.backgroundColor = .systemGreen
         case 5:

@@ -66,7 +66,7 @@ setTheme()
         case 2:
             collectionView.backgroundColor = .darkGray
         case 3:
-            collectionView.backgroundColor = .systemGray2
+            collectionView.backgroundColor = .systemGray3
         case 4:
             collectionView.backgroundColor = .systemGreen
         case 5:

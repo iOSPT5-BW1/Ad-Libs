@@ -36,7 +36,7 @@
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <segue destination="S14-AL-IL7" kind="showDetail" identifier="AdLibListCollectionSegue" id="caG-y5-S5G"/>
+                                            <segue destination="S14-AL-IL7" kind="show" identifier="AdLibListCollectionSegue" id="caG-y5-S5G"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -209,7 +209,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rG3-ye-XWL"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="dY7-LG-8aD">
+                    <navigationItem key="navigationItem" title="Your Wacky Ad-Lib" id="dY7-LG-8aD">
                         <barButtonItem key="leftBarButtonItem" systemItem="done" id="mHv-gf-IIS">
                             <connections>
                                 <segue destination="i58-gf-nuV" kind="show" id="TcM-kJ-gL7"/>
@@ -217,8 +217,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="Gqy-Mt-Gdg">
                             <connections>
-                                <action selector="saveButtonTapped:" destination="OLh-J4-u9J" id="Tqc-Pd-zff"/>
-                                <segue destination="i58-gf-nuV" kind="show" id="SLm-Kn-tiW"/>
+                                <action selector="saveButtonTapped:" destination="OLh-J4-u9J" id="VXr-a0-41f"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -402,7 +401,7 @@
             <objects>
                 <collectionViewController title="Ad-Libs Book" id="S14-AL-IL7" customClass="AdLibBookCollectionViewController" customModule="AdLibs" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="A6a-Vq-Ju0">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dmS-gy-2Hd">
@@ -443,7 +442,9 @@
                             <outlet property="delegate" destination="S14-AL-IL7" id="2BJ-Hw-xiT"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="crO-Pf-1o5"/>
+                    <navigationItem key="navigationItem" title="Wacky Libs Book" largeTitleDisplayMode="always" id="crO-Pf-1o5">
+                        <barButtonItem key="backBarButtonItem" title="\" id="VMJ-QQ-zVt"/>
+                    </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jAK-EE-200" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -514,7 +515,7 @@
         <image name="wackylibsstartscreen" width="364" height="395"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="SLm-Kn-tiW"/>
+        <segue reference="TcM-kJ-gL7"/>
         <segue reference="Rkt-cy-tAM"/>
         <segue reference="mNL-GY-zHG"/>
     </inferredMetricsTieBreakers>

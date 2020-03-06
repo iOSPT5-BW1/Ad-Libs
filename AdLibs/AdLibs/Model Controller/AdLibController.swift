@@ -33,7 +33,6 @@ class AdLibController {
         let group = Words(noun: noun, pronoun: pronoun, verb: verb, adjective: adjective, adverb: adverb, color: color, story: story)
         enteredWords.removeAll()
         enteredWords.append(group)
-        saveToPersistentStore()
         return group
     }
     

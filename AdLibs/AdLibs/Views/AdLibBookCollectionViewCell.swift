@@ -21,7 +21,7 @@ class AdLibBookCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var adLibStoryTitleLabel: UILabel!
     
     func updateViews() {
-        guard let title = storyBody else { return }
-        adLibStoryTitleLabel.text = title.title
+        guard let storyBody = storyBody else { return }
+        adLibStoryTitleLabel.text = storyBody.title
     }
 }

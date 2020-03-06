@@ -13,7 +13,6 @@ class StoryViewController: UIViewController {
     
     var adLibController : AdLibController?
     var adLib: AdLib?
-    var story: Story?
     var adlibFound: StoryBody?
 
    
@@ -48,7 +47,7 @@ class StoryViewController: UIViewController {
         case 2:
             view.backgroundColor = .darkGray
         case 3:
-            view.backgroundColor = .systemGray2
+            view.backgroundColor = .systemGray3
         case 4:
             view.backgroundColor = .systemGreen
         case 5:
@@ -67,10 +66,14 @@ class StoryViewController: UIViewController {
     }
     
     @IBAction func saveButtonTapped(_ sender: Any) {
+//        if adlibTitleField.text == "" {
+//            print("enter a title!")
+//        }
         guard let title = adlibTitleField.text,
             let body = storyTextVew.text,
             !title.isEmpty,
             !body.isEmpty else { return }
         adLibController?.createStory(title: title, body: body)
+        navigationController?.popToRootViewController(animated: true)
     }
 }

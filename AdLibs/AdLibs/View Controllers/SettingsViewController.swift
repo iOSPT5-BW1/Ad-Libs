@@ -34,6 +34,7 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     }
     
     func customizeButtons(sender: Int) {
+          Settings.shared.storyChanged = true
         switch sender {
         case 0:
             story1Button.layer.borderColor = UIColor.red.cgColor
@@ -93,8 +94,7 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         UserDefaults.standard.set(Settings.shared.changeBackground, forKey: "themeSet")
         setTheme()
     }
-    //   0       1        2       3       4       5        6        7         8       9
-    // "Blue", "Cyan", "Dark", "Gray", "Green", "Light", "Orange", "Purple", "Teal", "Yellow"
+    
     func setTheme() {
         switch Settings.shared.changeBackground {
         case 0:
@@ -104,7 +104,7 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         case 2:
             view.backgroundColor = .darkGray
         case 3:
-            view.backgroundColor = .systemGray2
+            view.backgroundColor = .systemGray3
         case 4:
             view.backgroundColor = .systemGreen
         case 5:
@@ -127,7 +127,7 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     }
     
     @IBAction func storySelectButtonPressed(_ sender: UIButton) {
-        Settings.shared.storyChanged = true
+      
         if Settings.shared.storyChanged {
         customizeButtons(sender: sender.tag)
         } else if !Settings.shared.storyChanged {
