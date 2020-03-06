@@ -36,26 +36,26 @@ class AdLibController {
         return group
     }
     
-    func list() -> String {
-        var output = ""
-        for adlib in adLibs {
-            output += "\(adlib.title) "
-        }
-        return output
-    }
-    
     //Save and Load methods
     
     func saveToPersistentStore() {
         guard let url = persistentFileURL else { return }
         do {
             let encoder = PropertyListEncoder()//we need a plist encoder = property list
-            let data = try encoder.encode(adLibs) //this is how we actually encode our model object
+            let data = try encoder.encode(storyList) //this is how we actually encode our model object
             try data.write(to: url) //now write it to the url we recently created. the url is the adLibs.plist that we created
         } catch {
             print("Error saving the adLibs data: \(error)")
         }
     }
+    
+//    func saveStorytoPersistentStore() {
+//        guard let url = persistentFileURL else { return }
+//        do {
+//            let encoder = PropertyListEncoder()
+//            let storyData = try encoder.encode([storyList])
+//        }
+//    }
     
     func loadFromPersistentStore() {
         let fileManager = FileManager.default
@@ -64,9 +64,9 @@ class AdLibController {
         do {
             let data = try Data(contentsOf: url)
             let decoder = PropertyListDecoder()
-            adLibs = try decoder.decode([AdLib].self, from: data)
+            storyList = try decoder.decode([StoryBody].self, from: data)
         } catch {
-            print("Error loading adLibs data: \(error)")
+            print("Error loading storyList data: \(error)")
         }
     }
     
