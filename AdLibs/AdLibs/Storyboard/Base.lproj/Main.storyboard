@@ -153,7 +153,7 @@
                     <connections>
                         <outlet property="adjectiveTextField" destination="2OW-rh-thq" id="zdK-o7-lEO"/>
                         <outlet property="adverbTextField" destination="dDB-EU-5bw" id="Wsv-bZ-FAt"/>
-                        <outlet property="colorTextView" destination="VxE-OD-Lp5" id="uch-15-HuR"/>
+                        <outlet property="colorTextField" destination="VxE-OD-Lp5" id="uch-15-HuR"/>
                         <outlet property="nounTextField" destination="skm-ss-xFU" id="now-Q9-IHe"/>
                         <outlet property="pronounTextField" destination="Pvy-TI-ifa" id="scW-3H-SKp"/>
                         <outlet property="randomAdlibLabel" destination="Jjp-X7-M9J" id="dch-YR-KAR"/>
