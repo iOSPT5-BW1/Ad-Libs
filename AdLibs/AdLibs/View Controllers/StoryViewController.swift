@@ -79,8 +79,8 @@ class StoryViewController: UIViewController {
         if adlibFound == adlibFound {
             adLibController?.updateStory(newTitle: title, newBody: body, oldStory: adlibFound)
         } else {
-        adLibController?.createStory(title: title, body: body)
+            adLibController?.createStory(title: title, body: body)
         }
-        navigationController?.popToRootViewController(animated: true)
+        navigationController?.popViewController(animated: true)
     }
 }
