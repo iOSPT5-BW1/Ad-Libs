@@ -14,7 +14,7 @@ class StoryViewController: UIViewController {
     var adLibController : AdLibController?
     var adLib: AdLib?
     var adlibFound: StoryBody?
-    
+    var storyState: StoryState?
     
     @IBOutlet weak var adlibTitleField: UITextField!
     @IBOutlet weak var storyTextVew: UITextView!
@@ -71,16 +71,18 @@ class StoryViewController: UIViewController {
     }
     
     @IBAction func saveButtonTapped(_ sender: Any) {
-        guard let adlibFound = adlibFound else { return }
-        guard let title = adlibTitleField.text,
+        guard let storyState = storyState,
+            let adlibFound = adlibFound,
+            let title = adlibTitleField.text,
             let body = storyTextVew.text,
             !title.isEmpty,
             !body.isEmpty else { return }
-        if adlibFound == adlibFound {
-            adLibController?.updateStory(newTitle: title, newBody: body, oldStory: adlibFound)
-        } else {
+        if storyState == .newStory {
             adLibController?.createStory(title: title, body: body)
+        } else {
+            adLibController?.updateStory(newTitle: title, newBody: body, oldStory: adlibFound)
         }
         navigationController?.popViewController(animated: true)
+        
     }
 }

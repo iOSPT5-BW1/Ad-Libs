@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class AdLibCreatorViewController: UIViewController {
     
     //    MARK: - Properties and Outlets
@@ -28,8 +29,9 @@ class AdLibCreatorViewController: UIViewController {
     var story: Story?
     var body: StoryBody?
     var storySelected = ""
+    var storyState: StoryState = .newStory
    
-    var toStoryView = "SegueToStoryView"
+//    var toStoryView = "SegueToStoryView"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -92,10 +94,11 @@ class AdLibCreatorViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == toStoryView {
+        if segue.identifier == "SegueToStoryView" {
             let destination = segue.destination as! StoryViewController
             setBody()
             destination.adLibController = adLibController
+            destination.storyState = storyState
             destination.adlibFound = self.body
         }
     }
