@@ -13,13 +13,19 @@ enum StoryState {
     case updateStory
 }
 
-struct StoryBody: Codable, Equatable {
+enum StoryTemplate: String {
+    case story1 = "story1"
+    case story2 = "story2"
+    case story3 = "story3"
+}
+
+struct Story: Codable, Equatable {
     
-    var filledStory: String = ""
+    var body: String = ""
     var title: String = ""
     
-    init(filledStory: String, title: String = "") {
-        self.filledStory = filledStory
+    init(body: String, title: String = "") {
+        self.body = body
         self.title = title
     }
 }
