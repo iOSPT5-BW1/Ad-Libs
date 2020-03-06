@@ -18,7 +18,7 @@ class AdLibCreatorViewController: UIViewController {
     @IBOutlet weak var pronounTextField: UITextField!
     @IBOutlet weak var adjectiveTextField: UITextField!
     @IBOutlet weak var adverbTextField: UITextField!
-    @IBOutlet weak var colorTextView: UITextField!
+    @IBOutlet weak var colorTextField: UITextField!
     @IBOutlet weak var switchLabel: UISwitch!
     @IBOutlet weak var randomAdlibLabel: UILabel!
     
@@ -38,10 +38,16 @@ class AdLibCreatorViewController: UIViewController {
         pronounTextField.backgroundColor = UIColor(white: 1, alpha: 0.75)
         adjectiveTextField.backgroundColor = UIColor(white: 1, alpha: 0.75)
         adverbTextField.backgroundColor = UIColor(white: 1, alpha: 0.75)
-        colorTextView.backgroundColor = UIColor(white: 1, alpha: 0.75)
+        colorTextField.backgroundColor = UIColor(white: 1, alpha: 0.75)
         randomAdlibLabel.isHidden = true
         switchLabel.isHidden = true
-        
+        nounTextField.delegate = self
+        verbTextField.delegate = self
+        pronounTextField.delegate = self
+        adjectiveTextField.delegate = self
+        adverbTextField.delegate = self
+        colorTextField.delegate = self
+
         updateViews()
     }
     
@@ -72,7 +78,7 @@ class AdLibCreatorViewController: UIViewController {
             let pronoun = pronounTextField.text,
             let adjective = adjectiveTextField.text,
             let adverb = adverbTextField.text,
-            let color = colorTextView.text,
+            let color = colorTextField.text,
             !noun.isEmpty,
             !verb.isEmpty,
             !pronoun.isEmpty,
@@ -128,6 +134,27 @@ class AdLibCreatorViewController: UIViewController {
     }
 }
 
+extension AdLibCreatorViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+       guard let text = textField.text,
+                  !text.isEmpty else { return false }
+            switch textField {
+            case nounTextField:
+                verbTextField.becomeFirstResponder()
+            case verbTextField:
+                pronounTextField.becomeFirstResponder()
+            case pronounTextField:
+                adjectiveTextField.becomeFirstResponder()
+            case adjectiveTextField:
+                adverbTextField.becomeFirstResponder()
+            case adverbTextField:
+                colorTextField.becomeFirstResponder()
+            default:
+                colorTextField.resignFirstResponder()
+        }
+        return true
+    }
+}
 
 
 
