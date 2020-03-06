@@ -20,6 +20,12 @@ class StoryTableViewController: UITableViewController {
         tableView.reloadData()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
+    
+    
+    
     func setTheme() {
         switch Settings.shared.changeBackground {
         case 0:
