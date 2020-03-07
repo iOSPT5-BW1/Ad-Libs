@@ -29,6 +29,7 @@ class AdLibCreatorViewController: UIViewController {
     var story: Story?
     var storySelected = ""
     var storyState: StoryState = .newStory
+    var randomWords: Words?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,8 +40,8 @@ class AdLibCreatorViewController: UIViewController {
         adjectiveTextField.backgroundColor = UIColor(white: 1, alpha: 0.75)
         adverbTextField.backgroundColor = UIColor(white: 1, alpha: 0.75)
         colorTextField.backgroundColor = UIColor(white: 1, alpha: 0.75)
-        randomAdlibLabel.isHidden = true
-        switchLabel.isHidden = true
+        //randomAdlibLabel.isHidden = true
+        //switchLabel.isHidden = true
         
         [nounTextField, verbTextField, pronounTextField, adjectiveTextField, adverbTextField, colorTextField].forEach { $0.delegate = self}
         updateViews()
@@ -68,6 +69,12 @@ class AdLibCreatorViewController: UIViewController {
     }
     
     private func setBody() {
+        if Settings.shared.randomYes {
+            guard let randomWords = randomWords else { return }
+            let storyString = "\n\n\n\n\n" + storySelector(adLib: randomWords)
+            let storyBody = Story(body: storyString)
+            self.story = storyBody
+        } else {
         guard let noun = nounTextField.text,
             let verb = verbTextField.text,
             let pronoun = pronounTextField.text,
@@ -85,7 +92,9 @@ class AdLibCreatorViewController: UIViewController {
         
         let storyString = "\n\n\n\n\n" + storySelector(adLib: words)
         let storyBody = Story(body: storyString)
-        self.story = storyBody
+            self.story = storyBody
+        }
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -95,6 +104,7 @@ class AdLibCreatorViewController: UIViewController {
             destination.adLibController = adLibController
             destination.storyState = storyState
             destination.storyFound = self.story
+            
         }
     }
     
@@ -125,7 +135,15 @@ class AdLibCreatorViewController: UIViewController {
         }
     }
     
-    @IBAction func gameSelectSwitched(_ sender: Any) {
+    @IBAction func gameSelectSwitched(_ sender: UISwitch) {
+        Settings.shared.randomYes.toggle()
+        print(Settings.shared.randomYes)
+        if Settings.shared.randomYes {
+        [nounTextField, verbTextField, pronounTextField, adjectiveTextField, adverbTextField, colorTextField].forEach { $0?.isEnabled = false}
+            randomWords = adLibController?.getWords()
+        } else {
+            [nounTextField, verbTextField, pronounTextField, adjectiveTextField, adverbTextField, colorTextField].forEach { $0?.isEnabled = true}
+        }
     }
 }
 

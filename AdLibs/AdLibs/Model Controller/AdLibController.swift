@@ -75,4 +75,25 @@ class AdLibController {
         let sortedStories = storyList.sorted(by: { $0.title.lowercased() < $1.title.lowercased() })
         return sortedStories
     }
+    
+    var noun = ["caveman", "sheriff", "rock", "tree", "ocean", "table", "elf", "dog", "chair", "couch", "fork", "remote", "speaker", "quarry", "bark"]
+    var pronoun = ["me", "you", "I", "she", "it", "this", "we"]
+    var verb = ["run", "walk", "fly", "throw", "jump", "build", "see", "cut"]
+    var adverb = ["carefully", "correctly", "quietly", "quickly", "eagerly", "speedily", "smoothly", "hungrily"]
+    var adjective = ["good", "drab", "blasé", "different", "eary", "little", "small", "skinny", "heavy"]
+    var color = ["red", "blue", "orange", "yellow", "mauve", "tan", "violet"]
+    var vowels = ["A", "a","E", "e", "I", "i", "O", "o", "U", "u"]
+    
+    func getWords() -> Words {
+    let randomNoun = noun.randomElement()
+    let randomVerb = verb.randomElement()
+    let randomAdverb = adverb.randomElement()
+    let randomPronoun = pronoun.randomElement()
+    let randomAdjective = adjective.randomElement()
+    let randomColor = color.randomElement()
+        
+        let randomWords = Words(noun: randomNoun!, pronoun: randomPronoun!, verb: randomVerb!, adjective: randomAdjective!, adverb: randomAdverb!, color: randomColor!)
+        
+        return randomWords
+    }
 }

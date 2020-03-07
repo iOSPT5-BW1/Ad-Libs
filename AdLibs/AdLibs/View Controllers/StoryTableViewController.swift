@@ -24,8 +24,6 @@ class StoryTableViewController: UITableViewController {
         tableView.reloadData()
     }
     
-    
-    
     func setTheme() {
         switch Settings.shared.changeBackground {
         case 0:
@@ -94,6 +92,7 @@ class StoryTableViewController: UITableViewController {
             showStoryVC.storyState = storyState
         }
     }
+    
     private func storiesFor(indexPath: IndexPath) -> Story {
         var story: Story?
         story = adLibController.sortStories[indexPath.row]
