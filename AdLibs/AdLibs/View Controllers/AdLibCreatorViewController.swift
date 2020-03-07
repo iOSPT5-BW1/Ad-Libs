@@ -48,6 +48,7 @@ class AdLibCreatorViewController: UIViewController {
     }
     
     func updateViews() {
+        Settings.shared.randomYes = false
         setTheme()
     }
     
@@ -141,7 +142,19 @@ class AdLibCreatorViewController: UIViewController {
         if Settings.shared.randomYes {
         [nounTextField, verbTextField, pronounTextField, adjectiveTextField, adverbTextField, colorTextField].forEach { $0?.isEnabled = false}
             randomWords = adLibController?.getWords()
+            nounTextField.text = randomWords?.noun
+            verbTextField.text = randomWords?.verb
+            pronounTextField.text = randomWords?.pronoun
+            adjectiveTextField.text = randomWords?.adjective
+            adverbTextField.text = randomWords?.adverb
+            colorTextField.text = randomWords?.color
         } else {
+            nounTextField.text = ""
+            verbTextField.text = ""
+            pronounTextField.text = ""
+            adjectiveTextField.text = ""
+            adverbTextField.text = ""
+            colorTextField.text = ""
             [nounTextField, verbTextField, pronounTextField, adjectiveTextField, adverbTextField, colorTextField].forEach { $0?.isEnabled = true}
         }
     }
