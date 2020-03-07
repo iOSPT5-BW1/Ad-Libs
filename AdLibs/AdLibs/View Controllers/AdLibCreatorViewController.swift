@@ -45,18 +45,7 @@ class AdLibCreatorViewController: UIViewController {
     }
     
     func updateViews() {
-        switch Settings.shared.story {
-        case .story1:
-            pronounTextField.isHidden = true
-            colorTextField.isHidden = true
-        case .story2:
-            adverbTextField.isHidden = true
-        case .story3:
-            pronounTextField.isHidden = false
-        
-        default:
-            break
-        }
+        Settings.shared.randomYes = false
         setTheme()
     }
     
@@ -150,7 +139,8 @@ class AdLibCreatorViewController: UIViewController {
     }
     
     @IBAction func gameSelectSwitched(_ sender: UISwitch) {
-        Settings.shared.randomYes = sender.isOn
+        Settings.shared.randomYes.toggle()
+     
         if Settings.shared.randomYes {
         [nounTextField, verbTextField, pronounTextField, adjectiveTextField, adverbTextField, colorTextField].forEach { $0?.isEnabled = false}
             randomWords = adLibController?.getWords()
