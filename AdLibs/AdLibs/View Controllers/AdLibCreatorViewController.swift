@@ -58,6 +58,9 @@ class AdLibCreatorViewController: UIViewController {
         let story2 =  "   You find yourself suddenly in the middle of an orchard of lemon \(adLib.noun)s.  \"Lemon \(adLib.noun)s?\" you ask yourself. \"What am I doing here?\"  It doesn’t matter. You are here. Let’s \(adLib.verb) with it.\n   The \(adLib.adjective) of lemons permeates the air. You are tempted to walk over to the nearest tree and pick a lemon. And walk over \(adLib.pronoun) do. You reach for a lemon on a low hanging branch. You are pricked by a thorn. Lesson learned.  If you want a lemon, it’s safer from the grocer."
         let story3 = "   I am still \(adLib.verb)ing how to code in Swift. A programming \(adLib.noun) used in iOS and tvOS apps by Apple. There is a lot to learn and understand. Even though it is suppose to be an \(adLib.adjective) language to \(adLib.verb) it can be daunting, but satisfying. There are times when \(adLib.verb)ing to code you can see \(adLib.color) in frustration.\n   To see your results come alive even on a simulator after a challenging process of \(adLib.adverb) working through a problem can be very exciting. The possibilities are far reaching and within \(adLib.pronoun) grasp!"
         
+        let storiesArray = [story1, story2, story3]
+        let randomStory = storiesArray[Int.random(in: 0...2)]
+        
         switch Settings.shared.story {
         case .story1:
             storySelected = story1
@@ -65,6 +68,8 @@ class AdLibCreatorViewController: UIViewController {
             storySelected = story2
         case .story3:
             storySelected = story3
+        case .random:
+            storySelected = randomStory
         }        
         return storySelected
     }
@@ -138,7 +143,6 @@ class AdLibCreatorViewController: UIViewController {
     
     @IBAction func gameSelectSwitched(_ sender: UISwitch) {
         Settings.shared.randomYes.toggle()
-        print(Settings.shared.randomYes)
         if Settings.shared.randomYes {
         [nounTextField, verbTextField, pronounTextField, adjectiveTextField, adverbTextField, colorTextField].forEach { $0?.isEnabled = false}
             randomWords = adLibController?.getWords()
