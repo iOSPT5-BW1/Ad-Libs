@@ -70,4 +70,9 @@ class AdLibController {
           storyList.remove(at: index)
           saveToPersistentStore()
       }
+    
+    var sortStories: [Story] {
+        let sortedStories = storyList.sorted(by: { $0.title.lowercased() < $1.title.lowercased() })
+        return sortedStories
+    }
 }

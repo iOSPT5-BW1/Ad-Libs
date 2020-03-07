@@ -65,21 +65,18 @@ class StoryTableViewController: UITableViewController {
         return adLibController.storyList.count
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "storyCell", for: indexPath) as? StoryTableViewCell else { return UITableViewCell() }
-        let row = adLibController.storyList[indexPath.row]
-        cell.story = row
+        let story = storiesFor(indexPath: indexPath)
+        cell.story = story
         
         return cell
     }
 
-
-    
-    // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            adLibController.deleteStory(which: adLibController.storyList[indexPath.row])
+            let story = storiesFor(indexPath: indexPath)
+            adLibController.deleteStory(which: story)
             tableView.reloadData()
         }
     }
@@ -92,9 +89,15 @@ class StoryTableViewController: UITableViewController {
             guard let showStoryVC = segue.destination as? StoryViewController,
                 let indexPath = tableView.indexPathForSelectedRow else { return }
             showStoryVC.adLibController = adLibController
-            let story = adLibController.storyList[indexPath.row]
+            let story = storiesFor(indexPath: indexPath)
             showStoryVC.storyFound = story
             showStoryVC.storyState = storyState
         }
     }
+    private func storiesFor(indexPath: IndexPath) -> Story {
+        var story: Story?
+        story = adLibController.sortStories[indexPath.row]
+        return story!
+    }
+    
 }
