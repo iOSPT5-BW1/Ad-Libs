@@ -13,6 +13,7 @@ class Settings {
     private init() {}
     var story: StoryTemplate = .story1
     var storyChanged: Bool = false
-    var changeBackground = UserDefaults.standard.integer(forKey: "themeSet") 
+    var changeBackground = UserDefaults.standard.integer(forKey: "themeSet")
+    var randomYes: Bool = false
 }
 
