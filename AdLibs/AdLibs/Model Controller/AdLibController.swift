@@ -76,12 +76,12 @@ class AdLibController {
         return sortedStories
     }
     
-    var noun = ["caveman", "sheriff", "rock", "tree", "ocean", "table", "elf", "dog", "chair", "couch", "fork", "remote", "speaker", "quarry", "bark"]
-    var pronoun = ["me", "you", "I", "she", "it", "this", "we"]
-    var verb = ["run", "walk", "fly", "throw", "jump", "build", "see", "cut"]
-    var adverb = ["carefully", "correctly", "quietly", "quickly", "eagerly", "speedily", "smoothly", "hungrily"]
-    var adjective = ["good", "drab", "blasé", "different", "eary", "little", "small", "skinny", "heavy"]
-    var color = ["red", "blue", "orange", "yellow", "mauve", "tan", "violet"]
+    var noun = ["caveman", "sheriff", "rock", "tree", "ocean", "table", "elf", "dog", "chair", "couch", "fork", "remote", "speaker", "quarry", "bark", "laptop", "phone", "button", "hotel"]
+    var pronoun = ["me", "you", "I", "she", "it", "this", "we", "they"]
+    var verb = ["run", "walk", "fly", "throw", "jump", "build", "see", "cut", "slap", "drill", "type"]
+    var adverb = ["abruptly", "beautifully", "carefully", "correctly", "quietly", "quickly", "eagerly", "speedily", "smoothly", "hungrily", "willfully"]
+    var adjective = ["good", "drab", "blasé", "different", "eary", "little", "small", "skinny", "heavy", "prickly", "dusty", "bumpy"]
+    var color = ["red", "blue", "orange", "yellow", "mauve", "tan", "violet", "turquoise", "grey"]
     var vowels = ["A", "a","E", "e", "I", "i", "O", "o", "U", "u"]
     
     func getWords() -> Words {

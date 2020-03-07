@@ -9,12 +9,12 @@
 import UIKit
 
 class WackyAdLibsViewController: UIViewController {
+    
 private let collectionViewIdentifier = "AdLibListCollectionSegue"
    var adlibcontroller = AdLibController()
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        setTheme()
+       
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -29,7 +29,6 @@ private let collectionViewIdentifier = "AdLibListCollectionSegue"
         }
     }
     
-
     func setTheme() {
         switch Settings.shared.changeBackground {
         case 0:
