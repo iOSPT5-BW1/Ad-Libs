@@ -23,8 +23,8 @@
                         <constraints>
                             <constraint firstItem="PX1-jJ-qnd" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="4Nk-Ws-1Lb"/>
                             <constraint firstItem="PX1-jJ-qnd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="CrA-lw-h4Y"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="PX1-jJ-qnd" secondAttribute="trailing" id="FP3-4w-Yad"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="PX1-jJ-qnd" secondAttribute="bottom" id="SWZ-Kc-9Rm"/>
+                            <constraint firstAttribute="trailing" secondItem="PX1-jJ-qnd" secondAttribute="trailing" id="FP3-4w-Yad"/>
+                            <constraint firstAttribute="bottom" secondItem="PX1-jJ-qnd" secondAttribute="bottom" constant="34" id="SWZ-Kc-9Rm"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
