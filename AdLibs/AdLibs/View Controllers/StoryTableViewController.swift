@@ -89,7 +89,7 @@ class StoryTableViewController: UITableViewController {
             guard let showStoryVC = segue.destination as? StoryViewController,
                 let indexPath = tableView.indexPathForSelectedRow else { return }
             showStoryVC.adLibController = adLibController
-            let story = adLibController.storyList[indexPath.row]
+            let story = storiesFor(indexPath: indexPath)
             showStoryVC.storyFound = story
             showStoryVC.storyState = storyState
         }
