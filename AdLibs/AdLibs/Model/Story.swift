@@ -17,6 +17,7 @@ enum StoryTemplate: String {
     case story1 = "story1"
     case story2 = "story2"
     case story3 = "story3"
+    case random = "random"
 }
 
 struct Story: Codable, Equatable {

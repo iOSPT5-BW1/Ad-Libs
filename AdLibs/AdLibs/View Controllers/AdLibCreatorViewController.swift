@@ -24,11 +24,11 @@ class AdLibCreatorViewController: UIViewController {
     
     var adLibController: AdLibController?
     
-    //var adLib: AdLib?
     var words: Words?
     var story: Story?
     var storySelected = ""
     var storyState: StoryState = .newStory
+    var randomWords: Words?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,22 +39,24 @@ class AdLibCreatorViewController: UIViewController {
         adjectiveTextField.backgroundColor = UIColor(white: 1, alpha: 0.75)
         adverbTextField.backgroundColor = UIColor(white: 1, alpha: 0.75)
         colorTextField.backgroundColor = UIColor(white: 1, alpha: 0.75)
-        randomAdlibLabel.isHidden = true
-        switchLabel.isHidden = true
         
         [nounTextField, verbTextField, pronounTextField, adjectiveTextField, adverbTextField, colorTextField].forEach { $0.delegate = self}
         updateViews()
     }
     
     func updateViews() {
+        Settings.shared.randomYes = false
         setTheme()
     }
     
     func storySelector(adLib: Words) ->  String {
         
-        let story1 = "   Allison takes her two \(adLib.noun)s for \(adLib.verb) around the block. They are large \(adLib.noun)s. She is a petite girl.  She is thrown about but still manages to keep them under control.\n   She sees her friend Billy across the street, \(adLib.verb)ing his three \(adLib.noun)s.  They are not large like hers.  They are \(adLib.adjective) but they have loud \(adLib.noun)s.\n   They \(adLib.adverb) pass each other and wave hello and go on their separate ways."
-        let story2 =  "   You find yourself suddenly in the middle of an orchard of lemon \(adLib.noun)s.  \"Lemon \(adLib.noun)s?\" you ask yourself. \"What am I doing here?\"  It doesn’t matter. You are here. Let’s \(adLib.verb) with it.\n   The \(adLib.adjective) of lemons permeates the air. You are tempted to walk over to the nearest tree and pick a lemon. And walk over \(adLib.pronoun) do. You reach for a lemon on a low hanging branch. You are pricked by a thorn. Lesson learned.  If you want a lemon, it’s safer from the grocer."
+        let story1 = "   Allison takes her two \(adLib.noun)s for a \(adLib.verb) around the block. They are large \(adLib.noun)s. She is a petite girl.  She is thrown about but still manages to keep them under control.\n   She sees her friend Billy across the street, \(adLib.verb)ing his three \(adLib.noun)s.  They are not large like hers.  They are \(adLib.adjective) but they have loud barks.\n   They \(adLib.adverb) pass each other and wave hello and go on their separate ways."
+        let story2 =  "   You find yourself suddenly in the middle of an orchard of lemon \(adLib.noun)s.  \"Lemon \(adLib.noun)s?\" you ask yourself. \"What am I doing here?\"  It doesn’t matter. You are here. Let’s \(adLib.verb) with it.\n   The \(adLib.adjective) of lemons permeates the air. You are tempted to walk over to the nearest tree and pick a lemon. And walk over \(adLib.pronoun) do. You reach for a big, \(adLib.color) lemon on a low hanging branch. You are pricked by a thorn. Lesson learned.  If you want a lemon, it’s safer from the grocer."
         let story3 = "   I am still \(adLib.verb)ing how to code in Swift. A programming \(adLib.noun) used in iOS and tvOS apps by Apple. There is a lot to learn and understand. Even though it is suppose to be an \(adLib.adjective) language to \(adLib.verb) it can be daunting, but satisfying. There are times when \(adLib.verb)ing to code you can see \(adLib.color) in frustration.\n   To see your results come alive even on a simulator after a challenging process of \(adLib.adverb) working through a problem can be very exciting. The possibilities are far reaching and within \(adLib.pronoun) grasp!"
+        
+        let storiesArray = [story1, story2, story3]
+        let randomStory = storiesArray[Int.random(in: 0...2)]
         
         switch Settings.shared.story {
         case .story1:
@@ -63,29 +65,38 @@ class AdLibCreatorViewController: UIViewController {
             storySelected = story2
         case .story3:
             storySelected = story3
+        case .random:
+            storySelected = randomStory
         }        
         return storySelected
     }
     
     private func setBody() {
-        guard let noun = nounTextField.text,
-            let verb = verbTextField.text,
-            let pronoun = pronounTextField.text,
-            let adjective = adjectiveTextField.text,
-            let adverb = adverbTextField.text,
-            let color = colorTextField.text,
-            !noun.isEmpty,
-            !verb.isEmpty,
-            !pronoun.isEmpty,
-            !adjective.isEmpty,
-            !adverb.isEmpty,
-            !color.isEmpty else { return }
-        words = Words(noun: noun, pronoun: pronoun, verb: verb, adjective: adjective, adverb: adverb, color: color)
-        guard let words = words else { return }
-        
-        let storyString = "\n\n\n\n\n" + storySelector(adLib: words)
-        let storyBody = Story(body: storyString)
-        self.story = storyBody
+        if Settings.shared.randomYes {
+            guard let randomWords = randomWords else { return }
+            let storyString = storySelector(adLib: randomWords)
+            let storyBody = Story(body: storyString)
+            self.story = storyBody
+        } else {
+            guard let noun = nounTextField.text,
+                let verb = verbTextField.text,
+                let pronoun = pronounTextField.text,
+                let adjective = adjectiveTextField.text,
+                let adverb = adverbTextField.text,
+                let color = colorTextField.text,
+                !noun.isEmpty,
+                !verb.isEmpty,
+                !pronoun.isEmpty,
+                !adjective.isEmpty,
+                !adverb.isEmpty,
+                !color.isEmpty else { return alert() }
+            words = Words(noun: noun, pronoun: pronoun, verb: verb, adjective: adjective, adverb: adverb, color: color)
+            guard let words = words else { return }
+            
+            let storyString = storySelector(adLib: words)
+            let storyBody = Story(body: storyString)
+            self.story = storyBody
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -125,27 +136,53 @@ class AdLibCreatorViewController: UIViewController {
         }
     }
     
-    @IBAction func gameSelectSwitched(_ sender: Any) {
+    @IBAction func gameSelectSwitched(_ sender: UISwitch) {
+        Settings.shared.randomYes.toggle()
+        
+        if Settings.shared.randomYes {
+            [nounTextField, verbTextField, pronounTextField, adjectiveTextField, adverbTextField, colorTextField].forEach { $0?.isEnabled = false}
+            randomWords = adLibController?.getWords()
+            nounTextField.text = randomWords?.noun
+            verbTextField.text = randomWords?.verb
+            pronounTextField.text = randomWords?.pronoun
+            adjectiveTextField.text = randomWords?.adjective
+            adverbTextField.text = randomWords?.adverb
+            colorTextField.text = randomWords?.color
+        } else {
+            nounTextField.text = ""
+            verbTextField.text = ""
+            pronounTextField.text = ""
+            adjectiveTextField.text = ""
+            adverbTextField.text = ""
+            colorTextField.text = ""
+            [nounTextField, verbTextField, pronounTextField, adjectiveTextField, adverbTextField, colorTextField].forEach { $0?.isEnabled = true}
+        }
+    }
+    
+    func alert() {
+        let alert = UIAlertController(title: "No Ad-Lib to Pass!", message: "Please Enter words into text fields", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
 }
 
 extension AdLibCreatorViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-       guard let text = textField.text,
-                  !text.isEmpty else { return false }
-            switch textField {
-            case nounTextField:
-                verbTextField.becomeFirstResponder()
-            case verbTextField:
-                pronounTextField.becomeFirstResponder()
-            case pronounTextField:
-                adjectiveTextField.becomeFirstResponder()
-            case adjectiveTextField:
-                adverbTextField.becomeFirstResponder()
-            case adverbTextField:
-                colorTextField.becomeFirstResponder()
-            default:
-                colorTextField.resignFirstResponder()
+        guard let text = textField.text,
+            !text.isEmpty else { return false }
+        switch textField {
+        case nounTextField:
+            verbTextField.becomeFirstResponder()
+        case verbTextField:
+            pronounTextField.becomeFirstResponder()
+        case pronounTextField:
+            adjectiveTextField.becomeFirstResponder()
+        case adjectiveTextField:
+            adverbTextField.becomeFirstResponder()
+        case adverbTextField:
+            colorTextField.becomeFirstResponder()
+        default:
+            colorTextField.resignFirstResponder()
         }
         return true
     }
