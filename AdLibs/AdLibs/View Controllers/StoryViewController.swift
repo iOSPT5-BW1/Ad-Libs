@@ -17,6 +17,7 @@ class StoryViewController: UIViewController {
     
     @IBOutlet weak var storyTitleField: UITextField!
     @IBOutlet weak var storyTextVew: UITextView!
+    @IBOutlet weak var enterAdlibTitleLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,11 +35,12 @@ class StoryViewController: UIViewController {
     func updateViews(){
         guard let storyFound = storyFound else { return }
         if storyFound.title != "" {
+            enterAdlibTitleLabel.text = "Edit Your Ad-Lib Title"
             storyTitleField.text = storyFound.title
             storyTextVew.text = storyFound.body
         } else {
-            storyTextVew.text = storyFound.body
-            setTheme()
+            enterAdlibTitleLabel.text = "Enter Your Ad-Lib Title"
+            storyTextVew.text = "\n\n\n\n\n" + storyFound.body
         }
     }
     
