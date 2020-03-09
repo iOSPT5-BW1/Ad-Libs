@@ -78,21 +78,21 @@ class AdLibCreatorViewController: UIViewController {
             let storyBody = Story(body: storyString)
             self.story = storyBody
         } else {
-        guard let noun = nounTextField.text,
-            let verb = verbTextField.text,
-            let pronoun = pronounTextField.text,
-            let adjective = adjectiveTextField.text,
-            let adverb = adverbTextField.text,
-            let color = colorTextField.text,
-            !noun.isEmpty,
-            !verb.isEmpty,
-            !pronoun.isEmpty,
-            !adjective.isEmpty,
-            !adverb.isEmpty,
-            !color.isEmpty else { return }
+            guard let noun = nounTextField.text,
+                let verb = verbTextField.text,
+                let pronoun = pronounTextField.text,
+                let adjective = adjectiveTextField.text,
+                let adverb = adverbTextField.text,
+                let color = colorTextField.text,
+                !noun.isEmpty,
+                !verb.isEmpty,
+                !pronoun.isEmpty,
+                !adjective.isEmpty,
+                !adverb.isEmpty,
+                !color.isEmpty else { return alert() }
             words = Words(noun: noun, pronoun: pronoun, verb: verb, adjective: adjective, adverb: adverb, color: color)
             guard let words = words else { return }
-
+            
             let storyString = storySelector(adLib: words)
             let storyBody = Story(body: storyString)
             self.story = storyBody
@@ -100,16 +100,12 @@ class AdLibCreatorViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if story?.body == nil {
-            alert()
-        }
         if segue.identifier == "SegueToStoryView" {
             let destination = segue.destination as! StoryViewController
             setBody()
             destination.adLibController = adLibController
             destination.storyState = storyState
             destination.storyFound = self.story
-            
         }
     }
     
@@ -142,9 +138,9 @@ class AdLibCreatorViewController: UIViewController {
     
     @IBAction func gameSelectSwitched(_ sender: UISwitch) {
         Settings.shared.randomYes.toggle()
-     
+        
         if Settings.shared.randomYes {
-        [nounTextField, verbTextField, pronounTextField, adjectiveTextField, adverbTextField, colorTextField].forEach { $0?.isEnabled = false}
+            [nounTextField, verbTextField, pronounTextField, adjectiveTextField, adverbTextField, colorTextField].forEach { $0?.isEnabled = false}
             randomWords = adLibController?.getWords()
             nounTextField.text = randomWords?.noun
             verbTextField.text = randomWords?.verb
@@ -164,8 +160,7 @@ class AdLibCreatorViewController: UIViewController {
     }
     
     func alert() {
-        
-          let alert = UIAlertController(title: "No Ad-Lib to Pass!", message: "Please Enter words into text fields", preferredStyle: .alert)
+        let alert = UIAlertController(title: "No Ad-Lib to Pass!", message: "Please Enter words into text fields", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alert, animated: true, completion: nil)
     }
@@ -173,21 +168,21 @@ class AdLibCreatorViewController: UIViewController {
 
 extension AdLibCreatorViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-       guard let text = textField.text,
-                  !text.isEmpty else { return false }
-            switch textField {
-            case nounTextField:
-                verbTextField.becomeFirstResponder()
-            case verbTextField:
-                pronounTextField.becomeFirstResponder()
-            case pronounTextField:
-                adjectiveTextField.becomeFirstResponder()
-            case adjectiveTextField:
-                adverbTextField.becomeFirstResponder()
-            case adverbTextField:
-                colorTextField.becomeFirstResponder()
-            default:
-                colorTextField.resignFirstResponder()
+        guard let text = textField.text,
+            !text.isEmpty else { return false }
+        switch textField {
+        case nounTextField:
+            verbTextField.becomeFirstResponder()
+        case verbTextField:
+            pronounTextField.becomeFirstResponder()
+        case pronounTextField:
+            adjectiveTextField.becomeFirstResponder()
+        case adjectiveTextField:
+            adverbTextField.becomeFirstResponder()
+        case adverbTextField:
+            colorTextField.becomeFirstResponder()
+        default:
+            colorTextField.resignFirstResponder()
         }
         return true
     }
