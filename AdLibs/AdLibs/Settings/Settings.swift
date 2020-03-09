@@ -7,10 +7,10 @@
 //
 
 import Foundation
+import UIKit
 
 class Settings {
     static let shared = Settings()
-    private init() {}
     var story: StoryTemplate = .random
     var storyChanged: Bool = false
     var changeBackground = UserDefaults.standard.integer(forKey: "themeSet")

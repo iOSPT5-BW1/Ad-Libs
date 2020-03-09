@@ -177,7 +177,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="z54-ty-W5z">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z54-ty-W5z">
                                 <rect key="frame" x="12" y="185" width="390" height="523"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -224,6 +224,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="enterAdlibTitleLabel" destination="NdE-Le-bUK" id="4Mj-Sb-gWD"/>
                         <outlet property="storyTextVew" destination="z54-ty-W5z" id="Sox-XR-vfh"/>
                         <outlet property="storyTitleField" destination="84M-mc-p3W" id="wff-jp-7bq"/>
                     </connections>
