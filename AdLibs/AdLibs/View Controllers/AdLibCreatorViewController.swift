@@ -100,6 +100,9 @@ class AdLibCreatorViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if story?.body == nil {
+            alert()
+        }
         if segue.identifier == "SegueToStoryView" {
             let destination = segue.destination as! StoryViewController
             setBody()
@@ -158,6 +161,13 @@ class AdLibCreatorViewController: UIViewController {
             colorTextField.text = ""
             [nounTextField, verbTextField, pronounTextField, adjectiveTextField, adverbTextField, colorTextField].forEach { $0?.isEnabled = true}
         }
+    }
+    
+    func alert() {
+        
+          let alert = UIAlertController(title: "No Ad-Lib to Pass!", message: "Please Enter words into text fields", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
 }
 
